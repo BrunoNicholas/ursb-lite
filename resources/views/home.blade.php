@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! <br>
+                    {{ URL::previous() }}<!-- This is the link reoute to the previous link -->
+                    <br>
+                    {{ Request::fullUrl() }} <!-- This shows the full URL of the current route -->
                 </div>
             </div>
         </div>
