@@ -49,6 +49,15 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <span class="nav-link">
+                                    <i class="fa fa-clock font-18 text-danger"></i> 
+                                    <b id="MyClockDisplay"></b> 
+                                    <b>|</b> 
+                                    <i class="fa fa-calendar-alt text-primary"></i> 
+                                    <b>{{ date('d / m / Y') }}</b>
+                                </span>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -76,5 +85,35 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript">
+        function showTime(){
+            var date = new Date();
+            var h = date.getHours();    // 0 - 23
+            var m = date.getMinutes();  // 0 - 59
+            var s = date.getSeconds();  // 0 - 59
+            var session = "AM";
+            
+            if(h == 0){
+                h = 12;
+            }
+            
+            if(h > 12){
+                h = h - 12;
+                session = "PM";
+            }
+            
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+            
+            setTimeout(showTime, 1000); 
+        }
+
+        showTime();
+    </script>
 </body>
 </html>

@@ -20,11 +20,14 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
+            $table->string('role')->nullable()->unique();
             $table->string('username')->nullable()->unique();
             $table->string('telephone')->nullable();
+            $table->string('location')->default('Kampala (Central), Uganda')->nullable();
             $table->string('gender')->default('Unknown')->nullable();
-            $table->string('pofile_image')->default('profile.jpg')->nullable();
+            $table->string('pofile_image')->default('profile.png')->nullable();
             $table->date('date_of_birth')->nullable();
+            $table->string('nationality')->default('Ugandan')->nullable(); 
             $table->integer('level')->default(0)->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -24,6 +24,12 @@ class RolesTableSeeder extends Seeder
         $role_admin->description = 'System\'s Head Administrator';
         $role_admin->save();
 
+        $role_registra = new Role();
+        $role_registra->name = 'registra';
+        $role_registra->display_name = 'Registra';
+        $role_registra->description = 'A managing registra';
+        $role_registra->save();
+
         $role_clerk = new Role();
         $role_clerk->name = 'clerk';
         $role_clerk->display_name = 'Data Clerk';
