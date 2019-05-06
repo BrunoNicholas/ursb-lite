@@ -12,7 +12,7 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        permissions = [
+        $permissions = [
         	[
         		'name'			=> 'create_role',
 	        	'display_name'	=> 'Create a role',
@@ -47,7 +47,7 @@ class PermissionsTableSeeder extends Seeder
         		'name'			=> 'change_user_role',
 	        	'display_name'	=> 'Can change user role',
 	        	'description'	=> 'Can change any user\'s system previleges',
-        	],
+        	], /*
         	[
         		'name'			=> '',
 	        	'display_name'	=> '',
@@ -62,7 +62,7 @@ class PermissionsTableSeeder extends Seeder
         		'name'			=> '',
 	        	'display_name'	=> '',
 	        	'description'	=> '',
-        	],
+        	], */
         ];
 
         foreach ($permissions as $key => $value) {

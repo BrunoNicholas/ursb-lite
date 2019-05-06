@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         // Permissions and Roles
         Zizaco\Entrust\EntrustServiceProvider::class,
+        // Intervention Image
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -227,6 +229,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // permissions and roles
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        // Intervention Image
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

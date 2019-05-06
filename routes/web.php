@@ -16,5 +16,36 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'web'], function(){
+	Route::get('test',[
+		'as' 	=> 'test',
+		'uses'	=> function(){
+			return view('admin.index');
+		},
+	]);
+});
+Route::group(['middleware' => 'auth'], function(){
+	//
+});
+Route::group(['middleware' => ['auth','verified']], function(){
+	Route::resource('users', 'UserController');
+	Route::resource('roles', 'RoleController');
+	Route::resource('messages', 'MessageController');
+
+	Route::get('messages-{type}',[
+		'as'	=> 'messages',
+		'uses'	=> 'MessageController@index',
+	]);
+
+	Route::get('admin-dashboard',[
+		'as'	=> 'admin',
+		'uses'	=> 'AdminPageController@index',
+	]);
+
+	Route::get('profile', [
+		'as'	=> 'profile',
+		'uses'	=> 'UserPageController@profile',
+	]);
+});
