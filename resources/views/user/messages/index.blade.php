@@ -1,9 +1,6 @@
-@section('title') Admin @endsection
-@section('styles')
-
-@endsection
 @extends('layouts.site')
-@section('title') Admin Dashboard @endsection
+@section('title') Email Messages @endsection
+@section('styles')  @endsection
 @section('locator')
     <div class="row">
         <div class="col-5 align-self-center">
@@ -23,10 +20,6 @@
             </div>
         </div>
     </div>
-@endsection
-
-
-
 @endsection
 @section('content')
     @include('layouts.includes.notifications')

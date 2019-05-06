@@ -1,5 +1,3 @@
-<!-- index.blade.php -->
-
 @section('title') Admin @endsection
 @section('styles')
 
