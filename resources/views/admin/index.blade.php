@@ -4,7 +4,7 @@
 @endsection
 @extends('layouts.site')
 @section('title') Admin Dashboard @endsection
-@section('locator')
+@section('navogator')
     <div class="row">
         <div class="col-5 align-self-center">
             <h4 class="page-title">{{ Auth::user()->name }} | Administrator's Dashboard</h4>
@@ -104,10 +104,9 @@
                                             @if($i < 5)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td> <img src="{{ asset('files/profile/images/'. $user->profile_image) }}" style="max-width: 25px; border-radius: 40%;">  {{ $user->name }}</td>
-                                                <td><i>null</i></td>
+                                                <td> {{ $user->name }} - <img src="{{ asset('files/profile/images/'.$user->profile_image) }}" style="max-width: 25px; border-radius: 40%;" alt="{{ $user->profile_image }}">  {{ $user->name }}</td>
+                                                <td> {{ App\Models\Role::where('name',$user->role)->get()->first()->display_name }} </td>
                                                 <td>
-                                                    <i>null</i>
                                                     @if($user->status == 'Active')
                                                         <span class="btn-xs btn-rounded label label-success">{{ $user->status }}</span>
                                                     @elseif($user->status == 'Away')

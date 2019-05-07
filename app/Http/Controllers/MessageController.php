@@ -107,9 +107,46 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($type=null)
     {
-        return view('user.messages.index','all');
+        $allCount   = DB::table('messages')->where('sender', Auth::user()->id)->orWhere('receiver', Auth::user()->id)->count();
+        $inboxCount = DB::table('messages')->where([['status', 'inbox'],['receiver', Auth::user()->id]])->count();
+        $trashCount = DB::table('messages')->where([['status', 'trash'],['receiver', Auth::user()->id]])->count();
+        $draftCount = DB::table('messages')->where([['status', 'draft'],['sender', Auth::user()->id]])->count();
+        $spamCount  = DB::table('messages')->where([['status', 'spam'],['receiver', Auth::user()->id]])->count();
+        $sentCount  = DB::table('messages')->where([['sender', Auth::user()->id]])->count();
+        $impCount   = DB::table('messages')->where([
+            ['folder', 'important'],
+            ['sender', Auth::user()->id]])->orWhere([
+                ['folder', 'important'],
+                ['receiver', Auth::user()->id]])->count();
+
+        $urgCount   = DB::table('messages')->where([
+            ['folder', 'urgent'],
+            ['sender', Auth::user()->id]])->orWhere([
+                ['folder', 'urgent'],
+                ['receiver', Auth::user()->id]])->count();
+
+        $offCount   = DB::table('messages')->where([
+            ['folder', 'official'],
+            ['sender', Auth::user()->id]])->orWhere([
+                ['folder', 'official'],
+                ['receiver', Auth::user()->id]])->count();
+
+        $unoffCount = DB::table('messages')->where([
+            ['folder', 'unofficial'],
+            ['sender', Auth::user()->id]])->orWhere([
+                ['folder', 'unofficial'],
+                ['receiver', Auth::user()->id]])->count();
+
+        $normalCount= DB::table('messages')->where([
+            ['folder', 'normal'],
+            ['sender', Auth::user()->id]])->orWhere([
+                ['folder', 'normal'],
+                ['receiver', Auth::user()->id]])->count();
+        $users = User::all();
+        return view('user.messages.create',compact(['type','users','normalCount','unoffCount','offCount',
+            'urgCount','impCount','sentCount','spamCount','draftCount','trashCount','inboxCount','allCount']));
     }
 
     /**
@@ -157,14 +194,24 @@ class MessageController extends Controller
         $allCount   = DB::table('messages')->where('sender', Auth::user()->id)->orWhere('receiver', Auth::user()->id)->count();
         $inboxCount = DB::table('messages')->where([['status', 'inbox'],['receiver', Auth::user()->id]])->count();
         $trashCount = DB::table('messages')->where([['status', 'trash'],['receiver', Auth::user()->id]])->count();
-        $draftCount = DB::table('messages')->where([['status', 'draft'],['receiver', Auth::user()->id]])->count();
-        $sentCount  = DB::table('messages')->where('sender', Auth::user()->id)->count();
+        $draftCount = DB::table('messages')->where([['status', 'draft'],['sender', Auth::user()->id]])->count();
         $spamCount  = DB::table('messages')->where([['status', 'spam'],['receiver', Auth::user()->id]])->count();
-        $impCount   = DB::table('messages')->where([['priority', 'important'],['receiver', Auth::user()->id]])->count();
-        $urgCount   = DB::table('messages')->where([['priority', 'urgent'],['receiver', Auth::user()->id]])->count();
-        $offCount   = DB::table('messages')->where([['priority', 'official'],['receiver', Auth::user()->id]])->count();
-        $unoffCount = DB::table('messages')->where([['priority', 'unofficial'],['receiver', Auth::user()->id]])->count();
-        $normalCount= DB::table('messages')->where([['priority', 'normal'],['receiver', Auth::user()->id]])->count();
+        $sentCount  = DB::table('messages')->where([['sender', Auth::user()->id]])->count();
+        $impCount   = DB::table('messages')->where([['folder', 'important'],['sender', Auth::user()->id]])->orWhere([
+            ['folder', 'important'],
+            ['receiver', Auth::user()->id]])->count();
+
+        $urgCount   = DB::table('messages')->where([['folder', 'urgent'],['sender', Auth::user()->id]])->orWhere([
+            ['folder', 'urgent'],['receiver', Auth::user()->id]])->count();
+
+        $offCount   = DB::table('messages')->where([['folder', 'official'],['sender', Auth::user()->id]])->orWhere([
+            ['folder', 'official'],['receiver', Auth::user()->id]])->count();
+
+        $unoffCount = DB::table('messages')->where([['folder', 'unofficial'],['sender', Auth::user()->id]])->orWhere([
+            ['folder', 'unofficial'],['receiver', Auth::user()->id]])->count();
+
+        $normalCount= DB::table('messages')->where([['folder', 'normal'],['sender', Auth::user()->id]])->orWhere([
+            ['folder', 'normal'],['receiver', Auth::user()->id]])->count();
         $users      = User::all();
         $message    = Message::find($id);
         $type       = 'inbox';
@@ -183,11 +230,25 @@ class MessageController extends Controller
      */
     public function edit($id)
     {
+        $allCount   = DB::table('messages')->where('sender', Auth::user()->id)->orWhere('receiver', Auth::user()->id)->count();
+        $inboxCount = DB::table('messages')->where([['status', 'inbox'],['receiver', Auth::user()->id]])->count();
+        $trashCount = DB::table('messages')->where([['status', 'trash'],['receiver', Auth::user()->id]])->count();
+        $draftCount = DB::table('messages')->where([['status', 'draft'],['receiver', Auth::user()->id]])->count();
+        $sentCount  = DB::table('messages')->where('sender', Auth::user()->id)->count();
+        $spamCount  = DB::table('messages')->where([['status', 'spam'],['receiver', Auth::user()->id]])->count();
+        $impCount   = DB::table('messages')->where([['priority', 'important'],['receiver', Auth::user()->id]])->count();
+        $urgCount   = DB::table('messages')->where([['priority', 'urgent'],['receiver', Auth::user()->id]])->count();
+        $offCount   = DB::table('messages')->where([['priority', 'official'],['receiver', Auth::user()->id]])->count();
+        $unoffCount = DB::table('messages')->where([['priority', 'unofficial'],['receiver', Auth::user()->id]])->count();
+        $normalCount= DB::table('messages')->where([['priority', 'normal'],['receiver', Auth::user()->id]])->count();
+
         $message = Message::find($id);
         if (!$message) {
             return redirect()->route('messages.index')->with('danger', 'Message Not Found!');
         }
-        return view('user.messages.edit', compact('message'));
+
+        return view('user.messages.edit',compact(['message','normalCount','unoffCount','offCount',
+            'urgCount','impCount','sentCount','spamCount','draftCount','trashCount','inboxCount','allCount']));
     }
 
     /**
@@ -199,7 +260,6 @@ class MessageController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         request()->validate([
             'sender'    =>  'required',
             'receiver'  =>  'required',
