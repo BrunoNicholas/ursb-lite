@@ -4,7 +4,7 @@
         <!-- User profile -->
         <div class="user-profile">
             <!-- User profile image -->
-            <div class="profile-img"> <img src="../assets/images/users/profile.png" alt="user" /> 
+            <div class="profile-img"> <img src="{{ asset('files/profile/images/'. Auth::user()->profile_image) }}" alt="user" /> 
                      <!-- this is blinking heartbit-->
                     <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
             </div>
@@ -24,13 +24,11 @@
                 <!-- text--> 
                 <a href="{{ route('profile') }}" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
                 <!-- text-->  
-                <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                <!-- text-->  
                 <a href="{{ route('messages.index',['type'=>'inbox']) }}" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
                 <!-- text--> 
                 <div class="dropdown-divider"></div>
                 <!-- text-->  
-                <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                <a href="{{ route('admin') }}" class="dropdown-item"><i class="ti-settings"></i> More Setting</a>
                 <!-- text--> 
                 <div class="dropdown-divider"></div>
                 <!-- text-->  
@@ -168,7 +166,7 @@
                                 <li><a href="pages-recover-password.html">Recover password</a></li>
                             </ul>
                         </li>
-                        <li><a href="pages-profile.html">Profile page</a></li>
+                        <li><a href="{{ route('profile') }}">Profile page</a></li>
                         <li><a href="pages-animation.html">Animation</a></li>
                         <li><a href="pages-fix-innersidebar.html">Sticky Left sidebar</a></li>
                         <li><a href="pages-fix-inner-right-sidebar.html">Sticky Right sidebar</a></li>

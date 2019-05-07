@@ -22,7 +22,7 @@ Route::group(['middleware' => 'web'], function(){
 	Route::get('test',[
 		'as' 	=> 'test',
 		'uses'	=> function(){
-			return view('admin.index');
+			return view('hhome');
 		},
 	]);
 });
@@ -35,8 +35,18 @@ Route::group(['middleware' => ['auth','verified']], function(){
 	Route::resource('messages', 'MessageController');
 
 	Route::get('messages-{type}',[
-		'as'	=> 'messages',
+		'as'	=> 'message.index',
 		'uses'	=> 'MessageController@index',
+	]);
+
+	Route::get('message-{type}-{id}',[
+		'as'	=> 'message.show',
+		'uses'	=> 'MessageController@show',
+	]);
+
+	Route::get('message-create',[
+		'as'	=> 'message.create',
+		'uses'	=> 'MessageController@create',
 	]);
 
 	Route::get('admin-dashboard',[
