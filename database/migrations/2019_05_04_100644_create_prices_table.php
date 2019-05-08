@@ -15,7 +15,15 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->default('Item price');
+            $table->string('quantity')->nullable();
+            $table->double('previous_price')->nullable();
+            $table->double('current_price')->nullable();
+            $table->text('comment')->nullable();
+
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

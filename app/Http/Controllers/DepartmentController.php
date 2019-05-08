@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::latest()->paginate();
+        return view('system.departments.index',compact(['departments']));
     }
 
     /**
@@ -24,7 +25,8 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::latest()->paginate();
+        return view('system.departments.create',compact(['departments']));
     }
 
     /**
@@ -44,9 +46,10 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function show(Department $department)
+    public function show($id)
     {
-        //
+        $department = Department::find($id);
+        return view('system.departments.show',compact(['department']));
     }
 
     /**
@@ -55,9 +58,10 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return view('system.departments.edit',compact(['department']));
     }
 
     /**
@@ -67,7 +71,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +82,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy($id)
     {
         //
     }

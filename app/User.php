@@ -7,6 +7,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 // use Laravel\Passport\HasApiTokens;
+use App\Models\Role;
+use App\Models\Board;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -46,4 +48,32 @@ class User extends Authenticatable implements MustVerifyEmail
     // hasVerifiedEmail()
     // markEmailAsVerified()
     // sendEmailVerificationNotification()
+
+    /*
+     * This method is a relationship between this table
+     * or model and the the appointments table
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    /*
+     * This method is a relationship between this table
+     * or model and the the appointments table
+     */
+    public function boards()
+    {
+        return $this->hasMany(Board::class);
+    }
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the companies table and the transactions table
+     *
+     */
+    public function roles()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

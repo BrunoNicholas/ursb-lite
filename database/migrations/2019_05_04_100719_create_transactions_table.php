@@ -15,7 +15,17 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('company_id')->unsigned();
+            $table->string('biller_from')->nullable();
+            $table->string('billed_to')->nullable();
+            $table->string('due_date')->nullable();
+            $table->string('paid_by')->nullable();
+            $table->double('amount')->nullable();
+            $table->string('units')->nullable()->default('UGX');
+            $table->text('reason')->nullable();
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

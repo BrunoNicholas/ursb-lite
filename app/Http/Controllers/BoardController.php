@@ -14,7 +14,8 @@ class BoardController extends Controller
      */
     public function index()
     {
-        //
+        $boards = Board::latest()->paginate();
+        return view('system.boards.index',compact(['boards']));
     }
 
     /**
@@ -24,7 +25,8 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+        $boards = Board::latest()->paginate();
+        return view('system.boards.create',compact(['boards']));
     }
 
     /**
@@ -44,9 +46,10 @@ class BoardController extends Controller
      * @param  \App\Models\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function show(Board $board)
+    public function show($id)
     {
-        //
+        $board = Board::find($id);
+        return view('system.boards.show',compact(['board']));
     }
 
     /**
@@ -55,9 +58,10 @@ class BoardController extends Controller
      * @param  \App\Models\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function edit(Board $board)
+    public function edit($id)
     {
-        //
+        $board = Board::find($id);
+        return view('system.boards.edit',compact(['board']));
     }
 
     /**
@@ -67,7 +71,7 @@ class BoardController extends Controller
      * @param  \App\Models\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Board $board)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +82,7 @@ class BoardController extends Controller
      * @param  \App\Models\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Board $board)
+    public function destroy($id)
     {
         //
     }

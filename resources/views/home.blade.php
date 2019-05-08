@@ -1,26 +1,31 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in! <br>
-                    {{ URL::previous() }}<!-- This is the link reoute to the previous link -->
-                    <br>
-                    {{ Request::fullUrl() }} <!-- This shows the full URL of the current route -->
-                </div>
-            </div>
+@extends('layouts.site')
+@section('title') Home @endsection
+@section('styles')  @endsection
+@section('navigator')
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor"> Home | {{ Auth::user()->name }} </h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <!-- {{-- <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li> --}} -->
+                <li class="breadcrumb-item active"> Home </li>
+            </ol>
+        </div>
+        <div class="">
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10">
+            	<i class="ti-settings text-white"></i>
+            </button>
         </div>
     </div>
-</div>
+@endsection
+@section('content')
+    @include('layouts.includes.notifications')
+    <div class="row">
+
+
+
+    </div>
+@endsection
+@section('scripts')
 @endsection

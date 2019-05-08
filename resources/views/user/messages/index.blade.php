@@ -14,7 +14,9 @@
             </ol>
         </div>
         <div class="">
-            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10">
+            	<i class="ti-settings text-white"></i>
+            </button>
         </div>
     </div>
 @endsection
@@ -225,7 +227,7 @@
 	                                                </td>
 	                                                <td class="max-texts"> 
 	                                                	<a href="{{ route('message.show',[$message->id,$message->status]) }}" />
-	                                                	@if($message == 'normal')
+	                                                	@if($message == 'normal' || $message == 'Normal')
 	                                                		<span class="btn btn-info btn-xs"> Normal </span> 
 	                                                	@elseif($message->folder == 'important')
 	                                                		<span class="btn btn-danger btn-xs"> Important </span> 
