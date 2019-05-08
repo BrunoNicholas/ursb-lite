@@ -61,7 +61,7 @@ class BoardController extends Controller
     public function edit($id)
     {
         $board = Board::find($id);
-        return view('system.boards.show',compact(['board']));
+        return view('system.boards.edit',compact(['board']));
     }
 
     /**

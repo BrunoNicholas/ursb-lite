@@ -136,12 +136,12 @@
 			                            </div>
 			                            <div class="col">
 			                                <select class="custom-select form-control" name="folder">
-			                                    <option value="Normal">Select priority</option>
-			                                    <option value="Important">Important</option>
-			                                    <option value="Urgent">Urgent</option>
-			                                    <option value="Official">Official</option>
-			                                    <option value="Unofficial">Unofficial</option>
-			                                    <option value="Normal">Normal</option>
+			                                    <option value="normal">Select priority</option>
+			                                    <option value="important">Important</option>
+			                                    <option value="urgent">Urgent</option>
+			                                    <option value="official">Official</option>
+			                                    <option value="unofficial">Unofficial</option>
+			                                    <option value="normal">Normal</option>
 			                                    <option value="">None</option>
 			                                </select>
 			                            </div>
@@ -151,7 +151,7 @@
 	                                <textarea class="textarea_editor form-control" name="message" rows="10" placeholder="Enter text ..."></textarea>
 	                            </div>
 	                            @role(['super-admin'])
-	                            <h4><i class="ti-link"></i> Attachment</h4>
+	                            <h4><i class="ti-link"></i> Attachment </h4>
 	                            <div action="#" class="dropzone">
 	                                <div class="fallback">
 	                                    <input name="file" type="file" multiple />

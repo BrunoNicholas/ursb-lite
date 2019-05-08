@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}"> Administrator </a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin') }}"> Administrator </a></li>
                 <li class="breadcrumb-item"><a href="{{ route('users.index') }}"> System Users </a></li>
                 <li class="breadcrumb-item active"> Add User </li>
             </ol>

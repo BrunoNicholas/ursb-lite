@@ -25,7 +25,8 @@ class CoRegistrationController extends Controller
      */
     public function create()
     {
-        return view('system.companies.registrations.create');
+        $registrations = CoRegistration::latest()->paginate();
+        return view('system.companies.registrations.create',compact(['registrations']));
     }
 
     /**

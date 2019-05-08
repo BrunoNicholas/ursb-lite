@@ -8,8 +8,8 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}"> Administrator </a></li>
-                <li class="breadcrumb-item"><a href="{{ route('companies.index') }}"> System Companies </a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li>
+                <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> System Companies </a></li>
                 <li class="breadcrumb-item active"> Edit Companies </li>
             </ol>
         </div>

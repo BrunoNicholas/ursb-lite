@@ -14,7 +14,7 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        $receipts = Price::latest()->paginate();
+        $receipts = Receipt::latest()->paginate();
         return view('system.transactions.receipts.index',compact(['receipts']));
     }
 
@@ -25,7 +25,7 @@ class ReceiptController extends Controller
      */
     public function create()
     {
-        $receipts = Price::latest()->paginate();
+        $receipts = Receipt::latest()->paginate();
         return view('system.transactions.receipts.create',compact(['receipts']));
     }
 
@@ -48,7 +48,7 @@ class ReceiptController extends Controller
      */
     public function show($id)
     {
-        $receipt = Price::find($id);
+        $receipt = Receipt::find($id);
         return view('system.transactions.receipts.show',compact(['receipt']));
     }
 
@@ -60,8 +60,8 @@ class ReceiptController extends Controller
      */
     public function edit($id)
     {
-        $receipt = Price::find($id);
-        return view('system.transactions.receipts.show',compact(['receipt']));
+        $receipt = Receipt::find($id);
+        return view('system.transactions.receipts.edit',compact(['receipt']));
     }
 
     /**
