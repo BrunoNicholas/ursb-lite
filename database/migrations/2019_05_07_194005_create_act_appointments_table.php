@@ -15,7 +15,11 @@ class CreateActAppointmentsTable extends Migration
     {
         Schema::create('act_appointments', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('company_id')->unsigned();
+            
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

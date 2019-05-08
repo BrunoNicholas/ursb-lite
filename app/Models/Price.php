@@ -11,12 +11,18 @@ class Price extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+        'quantity'
+        'previous_price'
+        'current_price'
+        'comment'
+    ];
 
     /**
      * The string variable is for the table.
      *
      * @var array
      */
-    protected $table = '';
+    protected $table = 'prices';
 }

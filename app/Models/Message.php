@@ -31,7 +31,7 @@ class Message extends Model
     
     /**
      * Belonds to relationship connects both 
-     * the user table and the books table
+     * the user table and the this table
      *
      */
     public function users()

@@ -15,7 +15,16 @@ class CreateReceiptsTable extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('transaction_id')->unsigned();
+            $table->string('from')->nullable();
+            $table->string('to')->nullable();
+            $table->double('amount')->nullable();
+            $table->double('total')->nullable();
+            $table->double('balance')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
+
+            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

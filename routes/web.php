@@ -64,19 +64,19 @@ Route::group(['middleware' => ['auth','verified']], function(){
 		]);
 	/*	/end of users	*/
 	/*	custom roles	*/
-		Route::get('admin-dasboard-roles',[
+		Route::get('admin-user-roles',[
 			'as'	=> 'role.index',
 			'uses'	=> 'RoleController@index',
 		]);
-		Route::get('admin-dasboard-role-create',[
+		Route::get('admin-user-role-create',[
 			'as'	=> 'role.create',
 			'uses'	=> 'RoleController@create',
 		]);
-		Route::get('admin-dasboard-roles-{id}',[
+		Route::get('admin-user-roles-{id}',[
 			'as'	=> 'role.show',
 			'uses'	=> 'RoleController@show',
 		]);
-		Route::get('admin-dasboard-role-edit-{id}',[
+		Route::get('admin-user-role-edit-{id}',[
 			'as'	=> 'role.edit',
 			'uses'	=> 'RoleController@edit',
 		]);
@@ -190,19 +190,19 @@ Route::group(['middleware' => ['auth','verified']], function(){
 	/*	custom reservations	*/
 		Route::get('home-company-reservations',[
 			'as'	=>	'reservation.index',
-			'uses'	=>	'CoRegistrationController@index',
+			'uses'	=>	'NameReservationController@index',
 		]);
 		Route::get('home-company-reservations-{id}',[
 			'as'	=>	'reservation.show',
-			'uses'	=>	'CoRegistrationController@show',
+			'uses'	=>	'NameReservationController@show',
 		]);
 		Route::get('home-company-reservation-create',[
 			'as'	=>	'reservation.create',
-			'uses'	=>	'CoRegistrationController@create',
+			'uses'	=>	'NameReservationController@create',
 		]);
 		Route::get('home-company-reservation-edit-{id}',[
 			'as'	=>	'reservation.edit',
-			'uses'	=>	'CoRegistrationController@edit',
+			'uses'	=>	'NameReservationController@edit',
 		]);
 	/*	/end of reservations	*/
 	/*	custom nominals	*/
@@ -260,19 +260,19 @@ Route::group(['middleware' => ['auth','verified']], function(){
 		]);
 	/*	/end of prices	*/
 	/*	custom receipts	*/
-		Route::get('home-company-registration-receipts',[
+		Route::get('home-company-transactions-receipts',[
 			'as'	=> 	'receipt.index',
 			'uses'	=>	'ReceiptController@index',
 		]);
-		Route::get('home-company-registration-receipts-{id}',[
+		Route::get('home-company-transactions-receipts-{id}',[
 			'as'	=> 	'receipt.show',
 			'uses'	=>	'ReceiptController@show',
 		]);
-		Route::get('home-company-registration-receipt-create',[
+		Route::get('home-company-transactions-receipt-create',[
 			'as'	=> 	'receipt.create',
 			'uses'	=>	'ReceiptController@create',
 		]);
-		Route::get('home-company-registration-receipt-edit-{id}',[
+		Route::get('home-company-transactions-receipt-edit-{id}',[
 			'as'	=> 	'receipt.edit',
 			'uses'	=>	'ReceiptController@edit',
 		]);

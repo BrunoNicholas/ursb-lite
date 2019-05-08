@@ -12,14 +12,22 @@ class Receipt extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'transaction_id',
+        'from',
+        'to',
+        'amount'
+        'total',
+        'balance',
+        'comment',
+    ];
 
     /**
      * The string variable is for the table.
      *
      * @var array
      */
-    protected $table = '';
+    protected $table = 'receipts';
 
     /**
      * Belonds to relationship connects both 

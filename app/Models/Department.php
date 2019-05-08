@@ -11,12 +11,14 @@ class Department extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+    ];
 
     /**
      * The string variable is for the table.
      *
      * @var array
      */
-    protected $table = '';
+    protected $table = 'departments';
 }

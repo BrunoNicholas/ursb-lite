@@ -12,17 +12,22 @@ class ActAppointment extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'company_id',
+    ];
 
     /**
      * The string variable is for the table.
      *
      * @var array
      */
-    protected $table = '';
-
-
-
+    protected $table = 'act_appointments';
+    
+    /**
+     * Belonds to relationship connects this table to 
+     * the companies table and the transactions table
+     *
+     */
 	public function companies()
 	{
 		return $this->belongsTo(Company::class);
