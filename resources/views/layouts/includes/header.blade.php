@@ -8,16 +8,16 @@
                 <!-- Logo icon --><b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" sizes="32x32" />
+                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="{{ config('app.name') }}" class="dark-logo" sizes="32x32" />
                     <!-- Light Logo icon -->
-                    <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="{{ config('app.name') }}" class="light-logo" />
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text --><span>
                  <!-- dark Logo text -->
-                 <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                 <img src="{{ asset('assets/images/logo-text.png') }}" alt="{{ config('app.name') }}" class="dark-logo" />
                  <!-- Light Logo text -->    
-                 <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                 <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="{{ config('app.name') }}" /></span> </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
@@ -71,7 +71,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                <a class="nav-link text-center" href="javascript:void(0);"> <strong> Check all </strong> <i class="fa fa-angle-right"></i> </a>
                             </li>
                         </ul>
                     </div>
@@ -138,9 +138,19 @@
                 <!-- ============================================================== -->
                 <!-- Search -->
                 <!-- ============================================================== -->
-                <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                <li class="nav-item hidden-sm-down search-box"> 
+                    @if(URL::previous() != Request::fullUrl())
+                        <a href="{{ URL::previous() }}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark"> Back </a>
+                    @endif
+                </li>
+                <!-- ============================================================== -->
+                <!-- Search -->
+                <!-- ============================================================== -->
+                <li class="nav-item hidden-sm-down search-box"> 
+                    <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                     <form class="app-search">
-                        <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> 
+                    </form>
                 </li>
                 
                 <!-- ============================================================== -->

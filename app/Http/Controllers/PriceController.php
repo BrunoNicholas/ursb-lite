@@ -14,7 +14,8 @@ class PriceController extends Controller
      */
     public function index()
     {
-        //
+        $prices = Price::all();
+        return view('system.prices.index',compact(['prices']));
     }
 
     /**
@@ -24,7 +25,8 @@ class PriceController extends Controller
      */
     public function create()
     {
-        //
+        $prices = Price::latest()->paginate();
+        return view('system.prices.create',compact(['prices']));
     }
 
     /**
@@ -44,9 +46,10 @@ class PriceController extends Controller
      * @param  \App\Models\Price  $price
      * @return \Illuminate\Http\Response
      */
-    public function show(Price $price)
+    public function show($id)
     {
-        //
+        $price = Price::find($id);
+        return view('system.prices.show',compact(['price']));
     }
 
     /**
@@ -55,9 +58,10 @@ class PriceController extends Controller
      * @param  \App\Models\Price  $price
      * @return \Illuminate\Http\Response
      */
-    public function edit(Price $price)
+    public function edit($id)
     {
-        //
+        $price = Price::find($id);
+        return view('system.prices.edit',compact(['price']));
     }
 
     /**
@@ -67,7 +71,7 @@ class PriceController extends Controller
      * @param  \App\Models\Price  $price
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Price $price)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +82,7 @@ class PriceController extends Controller
      * @param  \App\Models\Price  $price
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Price $price)
+    public function destroy($id)
     {
         //
     }

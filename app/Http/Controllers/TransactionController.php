@@ -14,7 +14,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        $transactions = Transaction::latest()->paginate();
+        return view('system.transactions.index',compact(['transactions']));
     }
 
     /**
@@ -24,7 +25,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $transactions = Transaction::latest()->paginate();
+        return view('system.transactions.create',compact(['transactions']));
     }
 
     /**
@@ -44,9 +46,10 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show($id)
     {
-        //
+        $transaction = Transaction::find($id);
+        return view('system.transactions.show',compact(['transaction']));
     }
 
     /**
@@ -55,9 +58,10 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaction $transaction)
+    public function edit($id)
     {
-        //
+        $transaction = Transaction::find($id);
+        return view('system.transactions.edit',compact(['transaction']));
     }
 
     /**
@@ -67,7 +71,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaction $transaction)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +82,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $transaction)
+    public function destroy($id)
     {
         //
     }

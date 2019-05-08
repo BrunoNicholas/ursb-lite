@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('app.name') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
         <!-- Styles -->
         <style>
             html, body {
@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="javascript:void(0)">URSB</a>
-                    <a href="javascript:void(0)">Deveoper</a>
+                    <a href="javascript:void(0)">Developer</a>
                     <a href="javascript:void(0)">Real Time</a>
                     <a href="javascript:void(0)">API</a>
                     <a href="javascript:void(0)">Nova</a>
