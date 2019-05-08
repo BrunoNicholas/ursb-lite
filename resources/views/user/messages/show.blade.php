@@ -133,32 +133,32 @@
                                             <input type="hidden" name="receiver" value="{{ $message->receiver }}">
                                             <input type="hidden" name="message" value="{{ $message->message }}">
 
-                                            <div class="demo-radio-button btn-success dropdown-item">
+                                            <div class="btn-success dropdown-item">
                                                 <input type="radio" name="folder" value="important" @if ($message->folder == 'important')
                                                     checked="checked" @endif id="radio_1"> 
                                                 <label for="radio_1">Make Important</label>
                                             </div>
-                                            <div class="demo-radio-button btn-success dropdown-item">
+                                            <div class="btn-success dropdown-item">
                                                 <input type="radio" name="folder" value="urgent" @if ($message->folder == 'urgent')
                                                     checked="checked" @endif id="radio_2"> 
                                                 <label for="radio_2">Make Urgent</label>
                                             </div>
-                                            <div class="demo-radio-button btn-success dropdown-item">
+                                            <div class="btn-success dropdown-item">
                                                 <input type="radio" name="folder" value="official" @if ($message->folder == 'official')
                                                     checked="checked" @endif id="radio_3"> 
                                                 <label for="radio_3">Make Official</label>
                                             </div>
-                                            <div class="demo-radio-button btn-success dropdown-item">
+                                            <div class="btn-success dropdown-item">
                                                 <input type="radio" name="folder" value="unofficial" @if ($message->folder == 'unofficial')
                                                     checked="checked" @endif id="radio_4"> 
                                                 <label for="radio_4">Make Unofficial</label>
                                             </div>
-                                            <div class="demo-radio-button btn-success dropdown-item">
+                                            <div class="btn-success dropdown-item">
                                                 <input type="radio" name="folder" value="normal" @if ($message->folder == 'normal')
                                                     checked="checked" @endif id="radio_5"> 
                                                 <label for="radio_5">Make Normal</label>
                                             </div>
-                                            <div class="demo-radio-button btn-success dropdown-item ">
+                                            <div class="btn-success dropdown-item ">
                                                 <input type="radio" name="folder" value="" @if ($message->folder == '')
                                                     checked="checked" @endif id="radio_6"> 
                                                 <label for="radio_6">Remove Label</label>
