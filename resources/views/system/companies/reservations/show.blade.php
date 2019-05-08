@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li>
                 <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> Companies </a></li>
-                <li class="breadcrumb-item"><a href="{{ route('rreservation.index') }}"> Company Reservation </a></li>
+                <li class="breadcrumb-item"><a href="{{ route('reservation.index') }}"> Company Reservation </a></li>
                 <li class="breadcrumb-item active"> View Company Reservation </li>
             </ol>
         </div>

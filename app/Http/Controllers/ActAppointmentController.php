@@ -14,8 +14,8 @@ class ActAppointmentController extends Controller
      */
     public function index()
     {
-        $reservations = NameReservation::latest()->paginate();
-        return view('system.companies.reservations.index',compact(['reservations']));
+        $appointments = ActAppointment::latest()->paginate();
+        return view('system.companies.appointments.index',compact(['appointments']));
     }
 
     /**
@@ -25,8 +25,8 @@ class ActAppointmentController extends Controller
      */
     public function create()
     {
-        $reservations = NameReservation::latest()->paginate();
-        return view('system.companies.reservations.create',compact(['reservations']));
+        $appointments = ActAppointment::latest()->paginate();
+        return view('system.companies.appointments.create',compact(['appointments']));
     }
 
     /**
@@ -48,8 +48,8 @@ class ActAppointmentController extends Controller
      */
     public function show($id)
     {
-        $reservation = NameReservation::find($id);
-        return view('system.companies.reservations.show',compact(['reservation']));
+        $appointment = ActAppointment::find($id);
+        return view('system.companies.appointments.show',compact(['appointment']));
     }
 
     /**
@@ -60,8 +60,8 @@ class ActAppointmentController extends Controller
      */
     public function edit($id)
     {
-        $reservation = NameReservation::find($id);
-        return view('system.companies.reservations.edit',compact(['reservation']));
+        $appointment = ActAppointment::find($id);
+        return view('system.companies.appointments.edit',compact(['appointment']));
     }
 
     /**

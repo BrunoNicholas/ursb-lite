@@ -81,10 +81,10 @@
                     <div class="tab-content tabcontent-border p-20" id="myTabContent">
                         <div role="tabpanel" class="tab-pane active" id="home5" aria-labelledby="home-tab">
                             <h4 style="max-width: 50%; float: left">System Users</h4>
-                            <a href="{{ route('users.create') }}" title="Add New User" style="float: right;">
+                            <a href="{{ route('user.create') }}" title="Add New User" style="float: right;">
                                 <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i></button>
                             </a> 
-                            <a href="{{ route('users.index') }}" itle="View All Users" style="float: right;">
+                            <a href="{{ route('user.index') }}" itle="View All Users" style="float: right;">
                                 <button class="btn btn-sm btn-success">All Users</button>
                             </a>
                             <div class="table-responsive" style="overflow-x: auto;">
@@ -122,8 +122,8 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center" style="max-width: 100px;">
-                                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-xs text-info" title="User Details" style="float: left;"><i class="fa fa-info-circle"></i></a>
-                                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit User Profile"></i></a>
+                                                    <a href="{{ route('user.show', $user->id) }}" class="btn btn-xs text-info" title="User Details" style="float: left;"><i class="fa fa-info-circle"></i></a>
+                                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit User Profile"></i></a>
                                                 </td>
                                             </tr>
                                             @endif
@@ -135,10 +135,10 @@
 
                         <div role="tabpanel" class="tab-pane" id="roles" aria-labelledby="roles-tab">
                             <h4 style="max-width: 50%; float: left">System Users</h4>
-                            <a href="{{ route('roles.create') }}" title="Add New User" style="float: right;">
+                            <a href="{{ route('role.create') }}" title="Add New User" style="float: right;">
                                 <button class="btn btn-sm btn-danger pull-right"><i class="fa fa-plus"></i></button>
                             </a>
-                            <a href="{{ route('roles.index') }}" title="All Roles" style="float: right;">
+                            <a href="{{ route('role.index') }}" title="All Roles" style="float: right;">
                                 <button class="btn btn-sm btn-danger pull-right">All User Roles</button>
                             </a>
                             <div class="table-responsive">
@@ -162,8 +162,8 @@
                                                     <td>{{ $role->display_name }}</td>
                                                     <td style="">{{ $role->description }}</td>
                                                     <td class="text-center" style="min-width: 100px;">
-                                                        <a href="{{ route('roles.show', $role->id) }}" class="btn btn-xs text-info" title="Role Details" style="float: left;"><i class="fa fa-info-circle"></i></a>
-                                                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit Role Details"></i></a>
+                                                        <a href="{{ route('role.show', $role->id) }}" class="btn btn-xs text-info" title="Role Details" style="float: left;"><i class="fa fa-info-circle"></i></a>
+                                                        <a href="{{ route('role.edit', $role->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit Role Details"></i></a>
                                                     </td>
                                                 </tr>
                                             @endif

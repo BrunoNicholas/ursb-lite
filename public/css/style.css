@@ -30,16 +30,16 @@ File: scss
 /*Extra Variable*/
 /*Preloader*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-@import url(/scss/icons/font-awesome/css/font-awesome.min.css);
-@import url(/scss/icons/simple-line-icons/css/simple-line-icons.css);
-@import url(/scss/icons/weather-icons/css/weather-icons.min.css);
-@import url(/scss/icons/linea-icons/linea.css);
-@import url(/scss/icons/themify-icons/themify-icons.css);
-@import url(/scss/icons/flag-icon-css/flag-icon.min.css);
-@import url(/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css);
+@import url(../scss/icons/font-awesome/css/font-awesome.min.css);
+@import url(../scss/icons/simple-line-icons/css/simple-line-icons.css);
+@import url(../scss/icons/weather-icons/css/weather-icons.min.css);
+@import url(../scss/icons/linea-icons/linea.css);
+@import url(../scss/icons/themify-icons/themify-icons.css);
+@import url(../scss/icons/flag-icon-css/flag-icon.min.css);
+@import url(../scss/icons/material-design-iconic-font/css/materialdesignicons.min.css);
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-@import url(/css/spinners.css);
-@import url(/css/animate.css);
+@import url(../css/spinners.css);
+@import url(../css/animate.css);
 .preloader {
   width: 100%;
   height: 100%;
@@ -1582,7 +1582,7 @@ dropdown-item
 Custom-select
 ******************/
 .custom-select {
-  background: url(/assets/images/custom-select.png) right 0.75rem center no-repeat; }
+  background: url(../../assets/images/custom-select.png) right 0.75rem center no-repeat; }
 
 /*******************
 textarea
@@ -4753,12 +4753,12 @@ Stylish tooltip
   margin: -7px 0 0 -15px;
   width: 30px;
   height: 20px;
-  background: url(/assets/images/tooltip/tooltip1.svg) no-repeat center center;
+  background: url(../../assets/images/tooltip/tooltip1.svg) no-repeat center center;
   background-size: 100%; }
 
 .tooltip-content3 {
   position: absolute;
-  background: url(/assets/images/tooltip/shape1.svg) no-repeat center bottom;
+  background: url(../../assets/images/tooltip/shape1.svg) no-repeat center bottom;
   background-size: 100% 100%;
   z-index: 9999;
   width: 200px;
@@ -5019,7 +5019,7 @@ Error Page
 .error-box {
   height: 100%;
   position: fixed;
-  background: url(/assets/images/background/error-bg.jpg) no-repeat center center #fff;
+  background: url(../../assets/images/background/error-bg.jpg) no-repeat center center #fff;
   width: 100%; }
   .error-box .footer {
     width: 100%;
@@ -6612,7 +6612,7 @@ File: scss
   color: #26dad2; }
 
 .has-success .form-control-success {
-  background-image: url(/assets/images/icon/success.svg); }
+  background-image: url(../../assets/images/icon/success.svg); }
 
 .has-success .form-control {
   border-color: #26dad2; }
@@ -6621,7 +6621,7 @@ File: scss
   color: #ffb22b; }
 
 .has-warning .form-control-warning {
-  background-image: url(/assets/images/icon/warning.svg); }
+  background-image: url(../../assets/images/icon/warning.svg); }
 
 .has-warning .form-control {
   border-color: #ffb22b; }
@@ -6630,7 +6630,7 @@ File: scss
   color: #ef5350; }
 
 .has-danger .form-control-danger {
-  background-image: url(/assets/images/icon/danger.svg); }
+  background-image: url(../../assets/images/icon/danger.svg); }
 
 .has-danger .form-control {
   border-color: #ef5350; }

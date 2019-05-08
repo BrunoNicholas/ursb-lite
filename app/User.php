@@ -66,14 +66,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Board::class);
     }
-
-    /**
-     * Belonds to relationship connects this table to 
-     * the companies table and the transactions table
-     *
-     */
-    public function roles()
-    {
-        return $this->belongsTo(Role::class);
-    }
 }

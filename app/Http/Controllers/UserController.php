@@ -81,7 +81,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('admin.users.create', compact('roles'));
+        $users = User::latest()->paginate();
+        return view('admin.users.create', compact(['roles','users']));
     }
 
     /**

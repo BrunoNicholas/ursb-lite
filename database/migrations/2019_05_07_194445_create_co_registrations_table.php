@@ -24,7 +24,6 @@ class CreateCoRegistrationsTable extends Migration
             $table->string('business_nature')->nullable();
             $table->string('business_place')->nullable();
             $table->string('proposed_share_capital')->nullable();
-            $table->string('address')->nullable();
             $table->string('subscriber_proof1')->nullable();
             $table->string('subscriber_proof2')->nullable();
             $table->string('subscriber_proof3')->nullable();
