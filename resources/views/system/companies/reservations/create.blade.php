@@ -1,17 +1,17 @@
 @extends('layouts.site')
-@section('title') Add Company Reservation @endsection
+@section('title') Add Company Name Reservation @endsection
 @section('styles')  @endsection
 @section('navigator')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor"> Add Company Reservation | {{ config('app.name') }} </h3>
+            <h3 class="text-themecolor"> Add Company Name Reservation | {{ config('app.name') }} </h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li>
                 <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> Companies </a></li>
                 <li class="breadcrumb-item"><a href="{{ route('reservation.index') }}"> Company Reservation </a></li>
-                <li class="breadcrumb-item active"> Add Company Reservation </li>
+                <li class="breadcrumb-item active"> Add Name Reservation </li>
             </ol>
         </div>
         <div class="">

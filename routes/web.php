@@ -136,19 +136,19 @@ Route::group(['middleware' => ['auth','verified']], function(){
 	/*	custom registrations	*/
 		Route::get('home-company-registrations',[
 			'as'	=> 'reg.index',
-			'users'	=> 'CoRegistrationController@index'
+			'uses'	=> 'CoRegistrationController@index',
 		]);
 		Route::get('home-company-registration-create',[
 			'as'	=> 'reg.create',
-			'users'	=> 'CoRegistrationController@create'
+			'uses'	=> 'CoRegistrationController@create',
 		]);
 		Route::get('home-company-registrations-{id}',[
 			'as'	=> 'reg.show',
-			'users'	=> 'CoRegistrationController@show'
+			'uses'	=> 'CoRegistrationController@show',
 		]);
 		Route::get('home-company-registration-edit-{id}',[
 			'as'	=> 'reg.edit',
-			'users'	=> 'CoRegistrationController@edit'
+			'uses'	=> 'CoRegistrationController@edit',
 		]);
 	/*	/end of registrations	*/
 	/*	custom boards	*/

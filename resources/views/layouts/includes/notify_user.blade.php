@@ -27,7 +27,7 @@
     </div>
     <!-- Column -->
     <div class="col-lg-3 col-md-6">
-    	<a href="javascript:void(0)">
+    	<a href="{{ route('reg.index') }}">
 	        <div class="card card-hover">
 	            <div class="card-body">
 	                <!-- Row -->

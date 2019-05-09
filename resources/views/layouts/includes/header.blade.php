@@ -139,6 +139,12 @@
                 <!-- Search -->
                 <!-- ============================================================== -->
                 <li class="nav-item hidden-sm-down"> 
+                    <form class="nav-link dropdown-toggle text-muted waves-effect waves-dark">
+                        @csrf
+                        <button type="submit" href="{{ URL::previous() }}" class="btn btn-sm btn-success"> CLAIM </button>
+                    </form>
+                </li>
+                <li class="nav-item hidden-sm-down"> 
                     @if(URL::previous() != Request::fullUrl())
                         <a href="{{ URL::previous() }}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark"> Back </a>
                     @endif
