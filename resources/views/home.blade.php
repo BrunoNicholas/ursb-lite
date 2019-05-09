@@ -21,6 +21,7 @@
 @endsection
 @section('content')
     @include('layouts.includes.notifications')
+    @include('layouts.includes.notify_user')
     <div class="row">
 
 
@@ -28,4 +29,7 @@
     </div>
 @endsection
 @section('scripts')
+<script src="{{ asset('assets/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/morrisjs/morris.min.js') }}"></script>
+    <script src="{{ asset('js/dashboard4.js') }}"></script>
 @endsection

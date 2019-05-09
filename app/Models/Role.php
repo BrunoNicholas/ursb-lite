@@ -9,6 +9,6 @@ use App\User;
 class Role extends EntrustRole
 {
     protected $fillable = [
-    	'name','display_name','description'
+    	'name','display_name','description',
     ];
 }

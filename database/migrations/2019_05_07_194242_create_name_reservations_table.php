@@ -26,6 +26,7 @@ class CreateNameReservationsTable extends Migration
             $table->string('name_choice_1')->nullable();
             $table->string('name_choice_2')->nullable();
             $table->string('name_choice_3')->nullable();
+            $table->boolean('status')->default(true)->nullable();
             $table->string('date')->nullable();
             
             $table->timestamps();

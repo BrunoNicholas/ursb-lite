@@ -144,8 +144,8 @@
                         <span class="hide-menu"> Transactions </span>
                     </a> <!-- <span class="label label-rouded label-success pull-right">25</span> -->
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="starter-kit.html"> View All Transactions </a></li>
-                        <li><a href="pages-blank.html"> Add Transaction </a></li>
+                        <li><a href="{{ route('transaction.index') }}"> View All Transactions </a></li>
+                        <li><a href="{{ route('transaction.create') }}"> Add Transaction </a></li>
                         <li>
                             <a href="#" class="has-arrow"> Price Operations </a>
                             <!-- <span class="label label-rounded label-success">0</span> -->

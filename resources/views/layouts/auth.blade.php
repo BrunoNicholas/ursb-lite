@@ -37,7 +37,7 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(/assets/images/background/megamenubg.jpg); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+        <div class="login-register" style="background-image:url({{ asset('assets/images/background/megamenubg.jpg') }}); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
             @yield('content')
         </div>
     </section>
