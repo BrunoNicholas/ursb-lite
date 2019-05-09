@@ -22,8 +22,6 @@ class CreatePricesTable extends Migration
             $table->text('comment')->nullable();
 
             $table->timestamps();
-
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -16,17 +16,10 @@ class CreateNoticeActsTable extends Migration
         Schema::create('notice_acts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('company_id')->unsigned();
-            $table->text('note_1')->nullable()
-                    ->default('This Notice must be forwarded to the Registrar of Companies within 14
-days after the date of the incorporation of the company or of the change, as the
-case may be');
+            $table->text('note_1')->nullable();
             $table->string('presented_by')->nullable();
-            $table->string('notice_2')->nullable()
-                    ->default('Notice of the situation of the Registered Office of any change therein');
-            $table->string('company_name_registrar')->nullable()
-                    ->default('(insert name of company) hereby gives you notice, in
-accordance with section 116 of the Companies Act, that the Registered Office
-of the Company is situated at');
+            $table->text('notice_2')->nullable();
+            $table->text('company_name_registrar')->nullable();
             $table->string('registered_address')->nullable();
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();

@@ -4,14 +4,14 @@
 @section('navigator')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor"> Edit Company Act Appointment | {{ config('app.name') }} </h3>
+            <h3 class="text-themecolor"> Edit Appointment Record | {{ config('app.name') }} </h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li>
                 <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> Companies </a></li>
-                <li><a href="{{ route('appointment.index') }}"> Act Appointments </a></li>
-                <li class="breadcrumb-item active"> Edit Act Appointment </li>
+                <li class="breadcrumb-item"><a href="{{ route('appointment.index') }}"> Act Appointments </a></li>
+                <li class="breadcrumb-item active"> Edit Act Appointment Record </li>
             </ol>
         </div>
         <div class="">

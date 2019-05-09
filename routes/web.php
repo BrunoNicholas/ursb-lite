@@ -301,8 +301,16 @@ Route::group(['middleware' => ['auth','verified']], function(){
 		'uses'	=> 'AdminPageController@index',
 	]);
 
-	Route::get('profile', [
+	Route::get('home-profile', [
 		'as'	=> 'profile',
 		'uses'	=> 'UserPageController@profile',
+	]);
+	Route::post('home-profile', [
+		'as'	=> 'profile.update',
+		'uses'	=> 'UserPageController@update_image'
+	]);
+	Route::post('home-profile-password', [
+		'as'	=> 'password.update',
+		'uses'	=> 'UserController@changePassword'
 	]);
 });

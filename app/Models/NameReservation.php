@@ -24,6 +24,7 @@ class NameReservation extends Model
         'name_choice_1',
         'name_choice_2',
         'name_choice_3',
+        'status',
         'date',
     ];
 

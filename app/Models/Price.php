@@ -12,11 +12,11 @@ class Price extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
-        'quantity'
-        'previous_price'
-        'current_price'
-        'comment'
+        'name',
+        'quantity',
+        'previous_price',
+        'current_price',
+        'comment',
     ];
 
     /**

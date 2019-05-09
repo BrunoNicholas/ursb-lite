@@ -4,18 +4,18 @@
         <!-- Logo -->
         <!-- ============================================================== -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <!-- Logo icon --><b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="{{ config('app.name') }}" class="dark-logo" sizes="32x32" />
+                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="URSB1" class="dark-logo" sizes="32x32" style="border-radius: 3px;" />
                     <!-- Light Logo icon -->
-                    <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="{{ config('app.name') }}" class="light-logo" />
+                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="{{ config('app.name') }}" class="light-logo" style="border-radius: 3px;" />
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text --><span>
                  <!-- dark Logo text -->
-                 <img src="{{ asset('assets/images/logo-text.png') }}" alt="{{ config('app.name') }}" class="dark-logo" />
+                 <img src="{{ asset('assets/images/logo-text.png') }}" alt="{{ config('app.name') }}" class="dark-logo" style="border-radius: 3px;" />
                  <!-- Light Logo text -->    
                  <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="{{ config('app.name') }}" /></span> </a>
         </div>
@@ -34,7 +34,7 @@
                 <!-- Comment -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
+                    <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
                     <div class="dropdown-menu mailbox animated slideInUp">
@@ -83,7 +83,7 @@
                 <!-- Messages -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="javascript:void(0);" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
                     <div class="dropdown-menu mailbox animated slideInUp" aria-labelledby="2">
@@ -138,7 +138,7 @@
                 <!-- ============================================================== -->
                 <!-- Search -->
                 <!-- ============================================================== -->
-                <li class="nav-item hidden-sm-down search-box"> 
+                <li class="nav-item hidden-sm-down"> 
                     @if(URL::previous() != Request::fullUrl())
                         <a href="{{ URL::previous() }}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark"> Back </a>
                     @endif
@@ -157,7 +157,7 @@
                 <!-- Language -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-ug"></i> Uganda </a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-ug"></i> Uganda </a>
                 </li>
                 <!-- ============================================================== -->
                 <!-- Profile -->

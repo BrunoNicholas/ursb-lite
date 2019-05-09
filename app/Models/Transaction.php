@@ -17,11 +17,11 @@ class Transaction extends Model
         'company_id',
         'biller_from',
         'billed_to',
-        'due_date'
-        'paid_by'
-        'amount'
-        'quantity'
-        'reason'
+        'due_date',
+        'paid_by',
+        'amount',
+        'quantity',
+        'reason',
     ];
 
     /**

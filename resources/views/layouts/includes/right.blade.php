@@ -19,9 +19,13 @@
                 <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
             </ul>
             <ul class="m-t-20 chatonline">
-                <li><b>Chat option</b></li>
+                <li><b>Logged In User</b></li>
                 <li>
-                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{ asset('files/profile/images/'. Auth::user()->profile_image) }}" alt="user-img" class="img-circle"> <span> {{ Auth::user()->name }} <small class="text-success">online</small></span></a>
+                </li>
+                <li> {{ Auth::user()->email }} </li>
+                <li>
+                    {{ App\Models\Role::where('name',Auth::user()->role)->get()->first()->display_name }}
                 </li>
             </ul>
         </div>
