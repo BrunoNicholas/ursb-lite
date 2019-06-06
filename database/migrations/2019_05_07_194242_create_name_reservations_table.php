@@ -15,7 +15,7 @@ class CreateNameReservationsTable extends Migration
     {
         Schema::create('name_reservations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('company_id')->unsigned();
+            $table->integer('company_id')->unsigned()->nullable();
             $table->string('from_name')->nullable();
             $table->string('from_telephone')->nullable();
             $table->string('from_email')->nullable();

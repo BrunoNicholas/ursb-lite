@@ -4,13 +4,13 @@
 @section('navigator')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor"> Edit Companies transaction | {{ config('app.name') }} </h3>
+            <h3 class="text-themecolor"> Edit Transaction Details | {{ config('app.name') }} </h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li>
-                <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> System Companies </a></li>
-                <li class="breadcrumb-item"><a href="{{ route('transaction.index') }}"> Company Transactions </a></li>
+                <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> Companies </a></li>
+                <li class="breadcrumb-item"><a href="{{ route('transaction.index') }}"> Transactions </a></li>
                 <li class="breadcrumb-item active"> Edit Transactions </li>
             </ol>
         </div>

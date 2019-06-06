@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'URSB'),
+    'name' => env('APP_NAME', 'URSB Lite'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +178,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         // Intervention Image
         Intervention\Image\ImageServiceProvider::class,
+        // paypal
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 
     ],
 
@@ -231,7 +233,8 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         // Intervention Image
         'Image' => Intervention\Image\Facades\Image::class,
-
+        // Paypal
+        'PayPal' => Srmklive\PayPal\Providers\Facades\PayPal::class,
     ],
 
 ];

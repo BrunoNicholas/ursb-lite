@@ -104,7 +104,7 @@
                                             @if($i < 5)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td> {{ $user->name }} - <img src="{{ asset('files/profile/images/'.$user->profile_image) }}" style="max-width: 25px; border-radius: 40%;" alt="{{ $user->profile_image }}">  {{ $user->name }}</td>
+                                                <td> <img src="{{ asset('files/profile/images/'.$user->profile_image) }}" style="max-width: 25px; border-radius: 40%;" alt="{{ $user->profile_image }}">  {{ $user->name }}</td>
                                                 <td> {{ App\Models\Role::where('name',$user->role)->get()->first()->display_name }} </td>
                                                 <td>
                                                     @if($user->status == 'Active')
@@ -159,8 +159,8 @@
                                                 <tr>
                                                     <td>{{ ++$a }}</td>
                                                     <td style="min-width: 150px;">{{ $role->name }}</td>
-                                                    <td>{{ $role->display_name }}</td>
-                                                    <td style="">{{ $role->description }}</td>
+                                                    <td>{{ substr($role->display_name, 0, 15) . '. . .' }}</td>
+                                                    <td style="">{{ substr($role->description, 0, 15) . '. . .'  }}</td>
                                                     <td class="text-center" style="min-width: 100px;">
                                                         <a href="{{ route('role.show', $role->id) }}" class="btn btn-xs text-info" title="Role Details" style="float: left;"><i class="fa fa-info-circle"></i></a>
                                                         <a href="{{ route('role.edit', $role->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit Role Details"></i></a>

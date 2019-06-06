@@ -12,7 +12,7 @@
             <div class="profile-text"> 
                 <h5> {{ Auth::user()->name }} </h5>
                 <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="mdi mdi-settings"></i></a>
-                <a href="{{ route('messages.index',['type'=>'inbox']) }}" class="" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <a href="{{ route('message.index',['type'=>'inbox']) }}" class="" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
                 <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="" data-toggle="tooltip" title="Logout">
                 	<i class="mdi mdi-power"></i>
                 </a>
@@ -24,7 +24,7 @@
                 <!-- text--> 
                 <a href="{{ route('profile') }}" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
                 <!-- text-->  
-                <a href="{{ route('messages.index',['type'=>'inbox']) }}" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+                <a href="{{ route('message.index',['type'=>'inbox']) }}" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
                 <!-- text--> 
                 <div class="dropdown-divider"></div>
                 <!-- text-->  
@@ -51,11 +51,13 @@
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{ route('home') }}">Home</a></li>
+                        @role(['super-admin','admin'])
                         <li><a href="{{ route('admin') }}">Admin Dashboard</a></li>
+                        @endrole
                     </ul>
                 </li>
                 <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="{{ route('messages.index', ['type'=>'inbox']) }}" aria-expanded="false">
+                    <a class="has-arrow waves-effect waves-dark" href="{{ route('message.index', ['type'=>'inbox']) }}" aria-expanded="false">
                         <i class="mdi mdi-email"></i>
                         <span class="hide-menu">Messaging</span>
                     </a>
@@ -96,36 +98,36 @@
                         <li><a href="{{ route('reservation.create') }}"> Add Reservation </a></li>
                     </ul>
                 </li>
+                <!--
                 <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-table"></i>
-                        <span class="hide-menu"> Notices </span>
+                        <span class="hide-menu">  </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('notice.index') }}"> View All Notices </a></li>
-                        <li><a href="{{ route('notice.create') }}"> Add Notice </a></li>
+
                     </ul>
-                </li>
+                </li> -->
+                <!--
                 <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-map-marker"></i>
-                        <span class="hide-menu"> Nominal Capital </span>
+                        <span class="hide-menu">  </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('nominal.index') }}"> View Records </a></li>
-                        <li><a href="{{ route('nominal.create') }}"> Add Record </a></li>
+
                     </ul>
-                </li>
+                </li> -->
+                <!--
                 <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-file-chart"></i>
-                        <span class="hide-menu">Act of Appointment</span>
+                        <span class="hide-menu">  </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('appointment.index') }}"> View All </a></li>
-                        <li><a href="{{ route('appointment.create') }}"> Add New </a></li>
+
                     </ul>
-                </li>
+                </li> -->
                 <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-book-multiple"></i>
