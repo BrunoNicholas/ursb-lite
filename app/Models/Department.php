@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Department extends Model
 {
@@ -13,6 +14,9 @@ class Department extends Model
      */
     protected $fillable = [
         'name',
+        'level',
+        'created_by',
+        'description',
     ];
 
     /**
@@ -21,4 +25,14 @@ class Department extends Model
      * @var array
      */
     protected $table = 'departments';
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the users table as a many to one
+     *
+     */
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -41,8 +41,8 @@ class CoRegistration extends Model
      * the companies table and this table
      *
      */
-    // public function company()
-    // {
-    //     return $this->belongsTo(Company::class);
-    // }
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

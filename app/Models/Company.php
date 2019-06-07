@@ -7,6 +7,8 @@ use App\Models\NameReservation;
 use App\Models\CoRegistration;
 use App\Models\Transaction;
 use App\Models\Particular;
+use App\Models\Certificate;
+use App\Models\Logo;
 
 class Company extends Model
 {
@@ -33,21 +35,22 @@ class Company extends Model
 
     /**
      * Belonds to relationship connects this table to 
-     * the companies table and this table
+     * the logos table as a one to many
      *
      */
-    public function particulars()
+    public function logos()
     {
-        return $this->belongsTo(Particular::class);
+        return $this->hasMany(Logo::class);
     }
 
-    /*
-     * This method is a relationship between this table
-     * or model and the the appointments table
+    /**
+     * Belonds to relationship connects this table to 
+     * the certificates table as a one to many
+     *
      */
-    public function reservations()
+    public function certificates()
     {
-    	return $this->hasMany(NameReservation::class);
+        return $this->hasMany(Certificate::class);
     }
 
     /*
@@ -56,7 +59,7 @@ class Company extends Model
      */
     public function transactions()
     {
-    	return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class);
     }
 
     /*
@@ -65,6 +68,16 @@ class Company extends Model
      */
     public function registrations()
     {
-    	return $this->hasMany(CoRegistration::class);
+        return $this->hasMany(CoRegistration::class);
+    }
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the companies table and this table
+     *
+     */
+    public function particulars()
+    {
+        return $this->belongsTo(Particular::class);
     }
 }
