@@ -4,26 +4,6 @@
 @endsection
 @extends('layouts.site')
 @section('title') Admin Dashboard @endsection
-@section('navogator')
-    <div class="row">
-        <div class="col-5 align-self-center">
-            <h4 class="page-title">{{ Auth::user()->name }} | Administrator's Dashboard</h4>
-            <div class="d-flex align-items-center">
-
-            </div> 
-        </div>
-        <div class="col-7 align-self-center">
-            <div class="d-flex no-block justify-content-end align-items-center">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-@endsection
 @section('navigator')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
@@ -174,11 +154,11 @@
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="accounts" aria-labelledby="accounts-tab">
-                            <h4 style="max-width: 50%; float: left">Fellowship Departments</h4>
-                            <a href="javascript:void(0)" title="Add New Department" style="float: right;">
+                            <h4 style="max-width: 50%; float: left"> Departments</h4>
+                            <a href="{{ route('department.create') }}" title="Add New Department" style="float: right;">
                                 <button class="btn btn-sm btn-info pull-right"><i class="fa fa-plus"></i></button>
                             </a>
-                            <a href="javascript:void(0)" title="All Committee Departments" style="float: right;">
+                            <a href="{{ route('department.index') }}" title="All Committee Departments" style="float: right;">
                                 <button class="btn btn-sm btn-info pull-right">All Departments</button>
                             </a>
                             <div class="table-responsive">

@@ -1,10 +1,10 @@
 @extends('layouts.site')
-@section('title') Edit Administration Depatment @endsection
+@section('title') Edit Administration Department @endsection
 @section('styles')  @endsection
 @section('navigator')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor"> Edit Administration Depatment | {{ config('app.name') }} </h3>
+            <h3 class="text-themecolor"> Edit Department | {{ config('app.name') }} </h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">

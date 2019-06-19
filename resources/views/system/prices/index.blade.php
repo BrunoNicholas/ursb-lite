@@ -24,9 +24,24 @@
 @section('content')
     @include('layouts.includes.notifications')
     <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ route('price.create') }}" class="btn btn-xs btn-info float-right"><i class="fa fa-plus"></i> Add New </a>
+                    <h4 class="card-subtitle m-b-40"> Section Prices </h4>
 
 
 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('scripts')

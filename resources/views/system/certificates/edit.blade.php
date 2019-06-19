@@ -1,17 +1,17 @@
 @extends('layouts.site')
-@section('title') Add Act Appointment @endsection
+@section('title') Edit Registration Details @endsection
 @section('styles')  @endsection
 @section('navigator')
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor"> Add Appointment Record | {{ config('app.name') }} </h3>
+            <h3 class="text-themecolor"> Edit Company Registration Details | {{ config('app.name') }} </h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}"> Home </a></li>
                 <li class="breadcrumb-item"><a href="{{ route('company.index') }}"> Companies </a></li>
-                <li class="breadcrumb-item"><a href="{{ route('appointment.index') }}"> Act Appointments </a></li>
-                <li class="breadcrumb-item active"> Add Act Appointment </li>
+                <li class="breadcrumb-item"><a href="{{ route('reg.index') }}"> Company Notices </a></li>
+                <li class="breadcrumb-item active"> Edit Registrations Details </li>
             </ol>
         </div>
         <div class="">

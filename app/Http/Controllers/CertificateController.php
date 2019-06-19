@@ -14,7 +14,8 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        //
+        $certificates = Certificate::latest()->paginate();
+        return view('system.certificates.index',compact(['certificates']));
     }
 
     /**
@@ -24,7 +25,8 @@ class CertificateController extends Controller
      */
     public function create()
     {
-        //
+        $certificates = Certificate::latest()->paginate();
+        return view('system.certificates.create',compact(['certificates']));
     }
 
     /**

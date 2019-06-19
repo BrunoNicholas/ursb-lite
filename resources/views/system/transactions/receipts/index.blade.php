@@ -24,9 +24,21 @@
 @section('content')
     @include('layouts.includes.notifications')
     <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-subtitle m-b-40"> Transactions Receipts </h4>
 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
 
-
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('scripts')

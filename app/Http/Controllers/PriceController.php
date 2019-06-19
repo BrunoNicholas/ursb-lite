@@ -37,7 +37,14 @@ class PriceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name'          => 'required',
+            'current_price' => 'required',
+
+        ]);
+        Price::create($request->all());
+
+        return redirect()->route('price.index')->with('success','System Price Item Created Successfully');
     }
 
     /**

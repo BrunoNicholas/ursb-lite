@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth','verified']], function(){
 	Route::resource('users', 'UserController');
 	Route::resource('roles', 'RoleController');
 	Route::resource('messages', 'MessageController');
+	Route::resource('particulars', 'ParticularController');
 	Route::resource('companies', 'CompanyController');
 	Route::resource('registrations', 'CoRegistrationController');
 	Route::resource('boards', 'BoardController');
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['auth','verified']], function(){
 	Route::resource('receipts', 'ReceiptController');
 	Route::resource('transactions', 'TransactionController');
 	Route::resource('payment', 'PaymentController');
+	Route::resource('certificates', 'CertificateController');
 
 	/*	custom users	*/
 		Route::get('admin-dashboard-users',[
@@ -131,6 +133,24 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=> 'CoRegistrationController@edit',
 		]);
 	/*	/end of registrations	*/
+	/*	company particulars	*/
+		Route::get('home-company-particulars',[
+			'as'	=>	'particular.index',
+			'uses'	=>	'ParticularController@index',
+		]);
+		Route::get('home-company-particulars-{id}',[
+			'as'	=>	'particular.show',
+			'uses'	=>	'ParticularController@show',
+		]);
+		Route::get('home-company-particular-create',[
+			'as'	=>	'particular.create',
+			'uses'	=>	'ParticularController@create',
+		]);
+		Route::get('home-company-particular-edit-{id}',[
+			'as'	=>	'particular.edit',
+			'uses'	=>	'ParticularController@edit',
+		]);
+	/*	/end of company particulars	*/
 	/*	custom boards	*/
 		Route::get('admin-user-boards',[
 			'as'	=> 	'board.index',
@@ -149,6 +169,24 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=>	'BoardController@edit',
 		]);
 	/*	/end of boards	*/
+	/*	custom certificates	*/
+		Route::get('home-company-certificates',[
+			'as'	=> 	'certificate.index',
+			'uses'	=>	'CertificateController@index',
+		]);
+		Route::get('home-company-certificate-create',[
+			'as'	=> 	'certificate.create',
+			'uses'	=>	'CertificateController@create',
+		]);
+		Route::get('home-company-certificates-{id}',[
+			'as'	=> 	'certificate.show',
+			'uses'	=>	'CertificateController@show',
+		]);
+		Route::get('home-company-certificate-edit-{id}',[
+			'as'	=> 	'certificate.edit',
+			'uses'	=>	'CertificateController@edit',
+		]);
+	/*	/end of certificates	*/
 	/*	custom departments	*/
 		Route::get('admin-users-departments',[
 			'as'	=> 'department.index',
@@ -239,7 +277,6 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=> 'TransactionController@edit',
 		]);
 	/*	/end of transactions	*/
-
 	/*	payment modules */
 		Route::get('home-company-payment-paypal',[
 			'as'	=>	'payment.paypal',
