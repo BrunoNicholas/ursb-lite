@@ -71,7 +71,7 @@
                                         </td>
                                         <td style="min-width: 100px; text-align: center;">
                                             <a href="{{ route('department.show', $department->id) }}" class="btn btn-xs text-info" title="Department Details"><i class="fa fa-info-circle"></i></a>
-                                            <a href="{{ route('department.edit', $department->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit User Profile"></i></a>
+                                            <a href="{{ route('department.edit', $department->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit Department Profile"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
