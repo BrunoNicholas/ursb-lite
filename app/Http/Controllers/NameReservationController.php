@@ -25,6 +25,7 @@ class NameReservationController extends Controller
      */
     public function create()
     {
+        $reservations   = NameReservation::latest()->paginate();
         return view('system.companies.reservations.create',compact(['reservations']));
     }
 
@@ -36,7 +37,15 @@ class NameReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name_choice_1'      => ['required', 'unique:name_reservations'],
+            'name_choice_2'      => ['unique:name_reservations'],
+            'name_choice_3'      => ['unique:name_reservations'],
+
+        ]);
+        NameReservation::create($request->all());
+
+        return redirect()->route('reservation.index')->with('success','Name reserved successfully!');
     }
 
     /**
@@ -48,6 +57,9 @@ class NameReservationController extends Controller
     public function show($id)
     {
         $reservation = NameReservation::find($id);
+        if (!$reservation) {
+            return redirect()->route('system.companies.reservations.index')->with('danger', 'Name reservation not found!');
+        }
         return view('system.companies.reservations.show',compact(['reservation']));
     }
 
@@ -60,6 +72,9 @@ class NameReservationController extends Controller
     public function edit($id)
     {
         $reservation = NameReservation::find($id);
+        if (!$reservation) {
+            return redirect()->route('system.companies.reservations.index')->with('danger', 'Name reservation not found!');
+        }
         return view('system.companies.reservations.edit',compact(['reservation']));
     }
 

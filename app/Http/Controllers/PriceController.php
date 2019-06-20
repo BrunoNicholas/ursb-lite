@@ -86,11 +86,10 @@ class PriceController extends Controller
         request()->validate([
             'name'          => 'required',
             'current_price' => 'required',
-
         ]);
         Price::find($id)->update($request->all());
 
-        return redirect()->route('price.index')->with('success','System Price Item Updated Successfully');
+        return redirect()->route('price.index')->with('success','System price item updated successfully');
     }
 
     /**

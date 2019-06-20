@@ -30,12 +30,17 @@
                 <div class="card-body">
                     <h4 class="card-subtitle m-b-40"> Create Transactions Receipt </h4>
 
+                    
+
+
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
+
+
 
                 </div>
             </div>

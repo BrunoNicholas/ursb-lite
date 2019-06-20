@@ -22,7 +22,7 @@ Route::group(['middleware' => 'web'], function(){
 	Route::get('test',[
 		'as' 	=> 'test',
 		'uses'	=> function(){
-			return view('rhome');
+			return view('ohome');
 		},
 	]);
 });
