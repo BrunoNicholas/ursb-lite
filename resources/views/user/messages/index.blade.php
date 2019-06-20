@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="row">
                     <div class="col-xlg-2 col-lg-3 col-md-4">
-                        <div class="card-body inbox-panel"><a href="{{ route('message.create',['inbox']) }}" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light"> Compose </a>
+                        <div class="card-body inbox-panel"><a href="{{ route('message.create') }}" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light"> Compose </a>
                             <ul class="list-group list-group-full">
                                 <li class="list-group-item @if ($type == 'inbox')
                                 	active

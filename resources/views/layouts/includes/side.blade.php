@@ -12,7 +12,7 @@
             <div class="profile-text"> 
                 <h5> {{ Auth::user()->name }} </h5>
                 <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="mdi mdi-settings"></i></a>
-                <a href="{{ route('messages.index',['type'=>'inbox']) }}" class="" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <a href="{{ route('message.index','inbox') }}" class="" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
                 <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="" data-toggle="tooltip" title="Logout">
                 	<i class="mdi mdi-power"></i>
                 </a>
@@ -24,7 +24,7 @@
                 <!-- text--> 
                 <a href="{{ route('profile') }}" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
                 <!-- text-->  
-                <a href="{{ route('messages.index',['type'=>'inbox']) }}" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+                <a href="{{ route('message.index','inbox') }}" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
                 <!-- text--> 
                 <div class="dropdown-divider"></div>
                 <!-- text-->  
@@ -51,17 +51,19 @@
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{ route('home') }}">Home</a></li>
+                        @role(['super-admin','admin'])
                         <li><a href="{{ route('admin') }}">Admin Dashboard</a></li>
+                        @endrole
                     </ul>
                 </li>
                 <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="{{ route('messages.index', ['type'=>'inbox']) }}" aria-expanded="false">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false">
                         <i class="mdi mdi-email"></i>
                         <span class="hide-menu">Messaging</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('message.index',['type'=>'inbox']) }}"> Inbox </a></li>
-                        <li><a href="{{ route('message.create','inbox') }}"> Compose Mail </a></li>
+                        <li><a href="{{ route('message.index','inbox') }}"> Inbox </a></li>
+                        <li><a href="{{ route('message.create') }}"> Compose Mail </a></li>
                     </ul>
                 </li>
                 <li> 
@@ -70,12 +72,22 @@
                         <span class="hide-menu"> Other Links </span> <!-- <span class="label label-rouded label-danger pull-right">25</span> -->
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('profile') }}">My Profile</a></li>
-                        <li><a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a></li>
+                        <li><a href="{{ route('certificate.index') }}"> Certificates </a></li>
+                        <li><a href="{{ route('profile') }}"> My Profile </a></li>
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a></li>
                     </ul>
                 </li>
                 
                 <li class="nav-small-cap"> COMPANY DETAILS &amp; OPERATIONS </li>
+                <li> 
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-file"></i><span class="hide-menu"> Name Reservations </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{ route('reservation.index') }}"> Available Reservations </a></li>
+                        <li><a href="{{ route('reservation.create') }}"> Add Reservation </a></li>
+                    </ul>
+                </li>
                 <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-widgets"></i>
@@ -89,53 +101,45 @@
                 </li>
                 <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-file"></i><span class="hide-menu"> Name Reservations </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('reservation.index') }}"> Available Reservations </a></li>
-                        <li><a href="{{ route('reservation.create') }}"> Add Reservation </a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-table"></i>
-                        <span class="hide-menu"> Notices </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('notice.index') }}"> View All Notices </a></li>
-                        <li><a href="{{ route('notice.create') }}"> Add Notice </a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-map-marker"></i>
-                        <span class="hide-menu"> Nominal Capital </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('nominal.index') }}"> View Records </a></li>
-                        <li><a href="{{ route('nominal.create') }}"> Add Record </a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-file-chart"></i>
-                        <span class="hide-menu">Act of Appointment</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('appointment.index') }}"> View All </a></li>
-                        <li><a href="{{ route('appointment.create') }}"> Add New </a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-book-multiple"></i>
                         <span class="hide-menu"> Company Registration </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{ route('reg.index') }}"> All Registrations </a></li>
-                        <li><a href="{{ route('reg.create') }}"></a> Add Registration</li>
+                        <li><a href="{{ route('reg.index') }}">     All Registrations   </a></li>
+                        <li><a href="{{ route('reg.create') }}">    Add Registration    </a></li>
                     </ul>
                 </li>
+
+                <li> 
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-table"></i>
+                        <span class="hide-menu"> {{ config('app.name') }} Sections </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{ route('department.index') }}"> Departments </a></li>
+                        <li><a href="{{ route('board.index') }}"> View Board </a></li>
+                    </ul>
+                </li> 
+                <!--
+                <li> 
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-map-marker"></i>
+                        <span class="hide-menu">  </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+
+                    </ul>
+                </li> -->
+                <!--
+                <li> 
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-file-chart"></i>
+                        <span class="hide-menu">  </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+
+                    </ul>
+                </li> -->
                 
                 <li class="nav-small-cap">OTHER SECTIONS</li>
                 <li> 
@@ -151,7 +155,15 @@
                             <!-- <span class="label label-rounded label-success">0</span> -->
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{ route('price.index') }}"> View All Prices </a></li>
-                                <li><a href="{{ route('price.create') }}"> Add Price Equipement </a></li>
+                                <li><a href="{{ route('price.create') }}"> Add Price Item </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="has-arrow"> Receipts </a>
+                            <!-- <span class="label label-rounded label-success">0</span> -->
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{ route('receipt.index') }}"> View All Receips </a></li>
+                                <li><a href="{{ route('receipt.create') }}"> Add Receipt </a></li>
                             </ul>
                         </li>
                     </ul>

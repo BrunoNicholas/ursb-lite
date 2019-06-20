@@ -86,7 +86,7 @@
                                             {{ method_field('DELETE') }}
                                             <div class="tools" style="margin: 10px;">
                                                 <button type="submit" class="btn btn-danger btn-rounded btn-block"
-                                                    @if(Auth::user()->role != 'super-admin') disabled @endif onclick="return confirm('You are about to delete!\nThis is not reversible!')" title="You can not delete your profile"> Delete </button>
+                                                    @if(Auth::user()->role != 'super-admin') disabled @endif onclick="return confirm('You are about to delete!\nThis is not reversible!')" title="You can not delete this role item"> Delete </button>
                                             </div>
                                         </form>
                                     </div>

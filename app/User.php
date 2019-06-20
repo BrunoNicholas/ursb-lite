@@ -9,6 +9,8 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 // use Laravel\Passport\HasApiTokens;
 use App\Models\Role;
 use App\Models\Board;
+use App\Models\Department;
+use App\Models\Certificate;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -65,5 +67,25 @@ class User extends Authenticatable implements MustVerifyEmail
     public function boards()
     {
         return $this->hasMany(Board::class);
+    }
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the departments table as a one to many
+     *
+     */
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the certificates table as a one to many
+     *
+     */
+    public function certificates()
+    {
+        return $this->hasMany(Certificate::class);
     }
 }

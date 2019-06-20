@@ -121,7 +121,7 @@
 	                            <h3 class="card-title">Compose New Message</h3>
 	                            <div class="form-group">
 	                                <select class="custom-select form-control" name="receiver" placeholder="To:">
-	                                	<option> Send to: </option>
+	                                	<option value="{{ Auth::user()->id }}"> Send to: </option>
 	                                	@foreach($users as $user)
 	                                		@if($user->id != Auth::user()->id)
 	                                		<option value="{{ $user->id }}">{{ $user->email . ' (' . $user->name . ', '. $user->status . ') - ' . $user->telephone}}</option>

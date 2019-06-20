@@ -22,7 +22,7 @@ Route::group(['middleware' => 'web'], function(){
 	Route::get('test',[
 		'as' 	=> 'test',
 		'uses'	=> function(){
-			return view('rhome');
+			return view('ohome');
 		},
 	]);
 });
@@ -33,17 +33,17 @@ Route::group(['middleware' => ['auth','verified']], function(){
 	Route::resource('users', 'UserController');
 	Route::resource('roles', 'RoleController');
 	Route::resource('messages', 'MessageController');
+	Route::resource('particulars', 'ParticularController');
 	Route::resource('companies', 'CompanyController');
-	Route::resource('appointments', 'ActAppointmentController');
 	Route::resource('registrations', 'CoRegistrationController');
 	Route::resource('boards', 'BoardController');
 	Route::resource('departments', 'DepartmentController');
 	Route::resource('reservations', 'NameReservationController');
-	Route::resource('nominals', 'NominalController');
-	Route::resource('notices', 'NoticeActController');
 	Route::resource('prices', 'PriceController');
 	Route::resource('receipts', 'ReceiptController');
 	Route::resource('transactions', 'TransactionController');
+	Route::resource('payment', 'PaymentController');
+	Route::resource('certificates', 'CertificateController');
 
 	/*	custom users	*/
 		Route::get('admin-dashboard-users',[
@@ -115,24 +115,6 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=>	'CompanyController@edit',
 		]);
 	/*	/end of companies	*/
-	/*	custom appointments	*/
-		Route::get('home-company-appointments',[
-			'as'	=> 'appointment.index',
-			'uses'	=>	'ActAppointmentController@index',
-		]);
-		Route::get('home-company-appointments-{id}',[
-			'as'	=> 'appointment.show',
-			'uses'	=>	'ActAppointmentController@show',
-		]);
-		Route::get('home-company-appointment-create',[
-			'as'	=> 'appointment.create',
-			'uses'	=>	'ActAppointmentController@create',
-		]);
-		Route::get('home-company-appointment-edit-{id}',[
-			'as'	=> 'appointment.edit',
-			'uses'	=>	'ActAppointmentController@edit',
-		]);
-	/*	/end of appointments	*/
 	/*	custom registrations	*/
 		Route::get('home-company-registrations',[
 			'as'	=> 'reg.index',
@@ -151,6 +133,24 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=> 'CoRegistrationController@edit',
 		]);
 	/*	/end of registrations	*/
+	/*	company particulars	*/
+		Route::get('home-company-particulars',[
+			'as'	=>	'particular.index',
+			'uses'	=>	'ParticularController@index',
+		]);
+		Route::get('home-company-particulars-{id}',[
+			'as'	=>	'particular.show',
+			'uses'	=>	'ParticularController@show',
+		]);
+		Route::get('home-company-particular-create',[
+			'as'	=>	'particular.create',
+			'uses'	=>	'ParticularController@create',
+		]);
+		Route::get('home-company-particular-edit-{id}',[
+			'as'	=>	'particular.edit',
+			'uses'	=>	'ParticularController@edit',
+		]);
+	/*	/end of company particulars	*/
 	/*	custom boards	*/
 		Route::get('admin-user-boards',[
 			'as'	=> 	'board.index',
@@ -169,6 +169,24 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=>	'BoardController@edit',
 		]);
 	/*	/end of boards	*/
+	/*	custom certificates	*/
+		Route::get('home-company-certificates',[
+			'as'	=> 	'certificate.index',
+			'uses'	=>	'CertificateController@index',
+		]);
+		Route::get('home-company-certificate-create',[
+			'as'	=> 	'certificate.create',
+			'uses'	=>	'CertificateController@create',
+		]);
+		Route::get('home-company-certificates-{id}',[
+			'as'	=> 	'certificate.show',
+			'uses'	=>	'CertificateController@show',
+		]);
+		Route::get('home-company-certificate-edit-{id}',[
+			'as'	=> 	'certificate.edit',
+			'uses'	=>	'CertificateController@edit',
+		]);
+	/*	/end of certificates	*/
 	/*	custom departments	*/
 		Route::get('admin-users-departments',[
 			'as'	=> 'department.index',
@@ -205,42 +223,6 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=>	'NameReservationController@edit',
 		]);
 	/*	/end of reservations	*/
-	/*	custom nominals	*/
-		Route::get('home-company-nominals',[
-			'as'	=>	'nominal.index',
-			'uses'	=>	'NominalController@index',
-		]);
-		Route::get('home-company-nominals-{id}',[
-			'as'	=>	'nominal.show',
-			'uses'	=>	'NominalController@show',
-		]);
-		Route::get('home-company-nominal-create',[
-			'as'	=>	'nominal.create',
-			'uses'	=>	'NominalController@create',
-		]);
-		Route::get('home-company-nominal-edit-{id}',[
-			'as'	=>	'nominal.edit',
-			'uses'	=>	'NominalController@edit',
-		]);
-	/*	/end of nominals	*/
-	/*	custom notices	*/
-		Route::get('home-company-acts-notices',[
-			'as'	=> 'notice.index',
-			'uses'	=> 'NoticeActController@index',
-		]);
-		Route::get('home-company-acts-notices-{id}',[
-			'as'	=> 'notice.show',
-			'uses'	=> 'NoticeActController@show',
-		]);
-		Route::get('home-company-acts-notice-create',[
-			'as'	=> 'notice.create',
-			'uses'	=> 'NoticeActController@create',
-		]);
-		Route::get('home-company-acts-notice-edit-{id}',[
-			'as'	=> 'notice.edit',
-			'uses'	=> 'NoticeActController@edit',
-		]);
-	/*	/end of notices	*/
 	/*	custom prices	*/
 		Route::get('home-company-registration-prices',[
 			'as'	=> 'price.index',
@@ -260,19 +242,19 @@ Route::group(['middleware' => ['auth','verified']], function(){
 		]);
 	/*	/end of prices	*/
 	/*	custom receipts	*/
-		Route::get('home-company-transactions-receipts',[
+		Route::get('home-company-transaction-receipts',[
 			'as'	=> 	'receipt.index',
 			'uses'	=>	'ReceiptController@index',
 		]);
-		Route::get('home-company-transactions-receipts-{id}',[
+		Route::get('home-company-transaction-receipts-{id}',[
 			'as'	=> 	'receipt.show',
 			'uses'	=>	'ReceiptController@show',
 		]);
-		Route::get('home-company-transactions-receipt-create',[
+		Route::get('home-company-transaction-receipt-create',[
 			'as'	=> 	'receipt.create',
 			'uses'	=>	'ReceiptController@create',
 		]);
-		Route::get('home-company-transactions-receipt-edit-{id}',[
+		Route::get('home-company-transaction-receipt-edit-{id}',[
 			'as'	=> 	'receipt.edit',
 			'uses'	=>	'ReceiptController@edit',
 		]);
@@ -295,12 +277,21 @@ Route::group(['middleware' => ['auth','verified']], function(){
 			'uses'	=> 'TransactionController@edit',
 		]);
 	/*	/end of transactions	*/
+	/*	payment modules */
+		Route::get('home-company-payment-paypal',[
+			'as'	=>	'payment.paypal',
+			'uses'	=>	'PaymentController@payWithPaypal'
+		]);
+		Route::get('home-company-payments',[
+			'as'	=>	'payment.index',
+			'uses'	=>	'PaymentController@index'
+		]);
+	/*	/end of payment modules */
 
 	Route::get('admin-dashboard',[
 		'as'	=> 'admin',
 		'uses'	=> 'AdminPageController@index',
 	]);
-
 	Route::get('home-profile', [
 		'as'	=> 'profile',
 		'uses'	=> 'UserPageController@profile',

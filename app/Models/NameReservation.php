@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Company;
+use App\Models\Particular;
 
 class NameReservation extends Model
 {
@@ -13,7 +13,6 @@ class NameReservation extends Model
      * @var array
      */
     protected $fillable = [
-        'company_id',
         'from_name',
         'from_telephone',
         'from_email',
@@ -37,11 +36,11 @@ class NameReservation extends Model
 
     /**
      * Belonds to relationship connects this table to 
-     * the companies table and the transactions table
+     * the particulars table as a one to many
      *
      */
-    public function company()
+    public function particulars()
     {
-        return $this->belongsTo(Company::class);
+        return $this->hasMany(Particular::class);
     }
 }

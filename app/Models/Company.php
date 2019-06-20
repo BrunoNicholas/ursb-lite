@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ActAppointment;
 use App\Models\NameReservation;
 use App\Models\CoRegistration;
-use App\Models\Nominal;
-use App\Models\NoticeAct;
 use App\Models\Transaction;
+use App\Models\Particular;
+use App\Models\Certificate;
+use App\Models\Logo;
 
 class Company extends Model
 {
@@ -18,7 +18,7 @@ class Company extends Model
      * @var array
      */
     protected $fillable = [
-    	'name',
+    	'particular_id',
     	'created_by',
     	'owned_by',
     	'address',
@@ -33,40 +33,24 @@ class Company extends Model
      */
     protected $table = 'companies';
 
-    /*
-     * This method is a relationship between this table
-     * or model and the the appointments table
+    /**
+     * Belonds to relationship connects this table to 
+     * the logos table as a one to many
+     *
      */
-    public function appointments()
+    public function logos()
     {
-    	return $this->hasMany(ActAppointment::class);
+        return $this->hasMany(Logo::class);
     }
 
-    /*
-     * This method is a relationship between this table
-     * or model and the the appointments table
+    /**
+     * Belonds to relationship connects this table to 
+     * the certificates table as a one to many
+     *
      */
-    public function reservations()
+    public function certificates()
     {
-    	return $this->hasMany(NameReservation::class);
-    }
-
-    /*
-     * This method is a relationship between this table
-     * or model and the the appointments table
-     */
-    public function nominals()
-    {
-    	return $this->hasMany(Nominal::class);
-    }
-
-    /*
-     * This method is a relationship between this table
-     * or model and this table
-     */
-    public function notices()
-    {
-    	return $this->hasMany(NoticeAct::class);
+        return $this->hasMany(Certificate::class);
     }
 
     /*
@@ -75,7 +59,7 @@ class Company extends Model
      */
     public function transactions()
     {
-    	return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class);
     }
 
     /*
@@ -84,6 +68,16 @@ class Company extends Model
      */
     public function registrations()
     {
-    	return $this->hasMany(CoRegistration::class);
+        return $this->hasMany(CoRegistration::class);
+    }
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the companies table and this table
+     *
+     */
+    public function particulars()
+    {
+        return $this->belongsTo(Particular::class);
     }
 }

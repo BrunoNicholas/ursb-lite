@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Board;
+use App\User;
 
 class Department extends Model
 {
@@ -13,6 +15,10 @@ class Department extends Model
      */
     protected $fillable = [
         'name',
+        'level',
+        'created_by',
+        'description',
+        'status',
     ];
 
     /**
@@ -21,4 +27,23 @@ class Department extends Model
      * @var array
      */
     protected $table = 'departments';
+
+    /*
+     * This method is a relationship between this table
+     * or model and the the appointments table
+     */
+    public function boards()
+    {
+        return $this->hasMany(Board::class);
+    }
+
+    /**
+     * Belonds to relationship connects this table to 
+     * the users table as a many to one
+     *
+     */
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

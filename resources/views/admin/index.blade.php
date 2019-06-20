@@ -4,26 +4,6 @@
 @endsection
 @extends('layouts.site')
 @section('title') Admin Dashboard @endsection
-@section('navogator')
-    <div class="row">
-        <div class="col-5 align-self-center">
-            <h4 class="page-title">{{ Auth::user()->name }} | Administrator's Dashboard</h4>
-            <div class="d-flex align-items-center">
-
-            </div> 
-        </div>
-        <div class="col-7 align-self-center">
-            <div class="d-flex no-block justify-content-end align-items-center">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-@endsection
 @section('navigator')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
@@ -104,7 +84,7 @@
                                             @if($i < 5)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td> {{ $user->name }} - <img src="{{ asset('files/profile/images/'.$user->profile_image) }}" style="max-width: 25px; border-radius: 40%;" alt="{{ $user->profile_image }}">  {{ $user->name }}</td>
+                                                <td> <img src="{{ asset('files/profile/images/'.$user->profile_image) }}" style="max-width: 25px; border-radius: 40%;" alt="{{ $user->profile_image }}">  {{ $user->name }}</td>
                                                 <td> {{ App\Models\Role::where('name',$user->role)->get()->first()->display_name }} </td>
                                                 <td>
                                                     @if($user->status == 'Active')
@@ -159,8 +139,8 @@
                                                 <tr>
                                                     <td>{{ ++$a }}</td>
                                                     <td style="min-width: 150px;">{{ $role->name }}</td>
-                                                    <td>{{ $role->display_name }}</td>
-                                                    <td style="">{{ $role->description }}</td>
+                                                    <td>{{ substr($role->display_name, 0, 15) . '. . .' }}</td>
+                                                    <td style="">{{ substr($role->description, 0, 15) . '. . .'  }}</td>
                                                     <td class="text-center" style="min-width: 100px;">
                                                         <a href="{{ route('role.show', $role->id) }}" class="btn btn-xs text-info" title="Role Details" style="float: left;"><i class="fa fa-info-circle"></i></a>
                                                         <a href="{{ route('role.edit', $role->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit Role Details"></i></a>
@@ -174,11 +154,11 @@
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="accounts" aria-labelledby="accounts-tab">
-                            <h4 style="max-width: 50%; float: left">Fellowship Departments</h4>
-                            <a href="javascript:void(0)" title="Add New Department" style="float: right;">
+                            <h4 style="max-width: 50%; float: left"> Departments</h4>
+                            <a href="{{ route('department.create') }}" title="Add New Department" style="float: right;">
                                 <button class="btn btn-sm btn-info pull-right"><i class="fa fa-plus"></i></button>
                             </a>
-                            <a href="javascript:void(0)" title="All Committee Departments" style="float: right;">
+                            <a href="{{ route('department.index') }}" title="All Committee Departments" style="float: right;">
                                 <button class="btn btn-sm btn-info pull-right">All Departments</button>
                             </a>
                             <div class="table-responsive">

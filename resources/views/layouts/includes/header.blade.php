@@ -177,13 +177,13 @@
                                     <div class="u-img"><img src="{{ asset('files/profile/images/'. Auth::user()->profile_image) }}" alt="user"></div>
                                     <div class="u-text">
                                         <h4> {{ Auth::user()->name }} </h4>
-                                        <p class="text-muted">{{ Auth::user()->email }}</p><a href="{{ route('profile') }}" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                        <p class="text-muted">{{ Auth::user()->email }}</p><a href="{{ route('profile') }}" class="btn btn-rounded btn-danger btn-sm">{{ App\Models\Role::where('name',Auth::user()->role)->get()->first()->display_name }}</a></div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ route('profile') }}"><i class="ti-user"></i> My Profile</a></li>
                             <!-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li> -->
-                            <li><a href="{{ route('messages.index',['type'=>'inbox']) }}"><i class="ti-email"></i> Inbox</a></li>
+                            <li><a href="{{ route('message.index',['type'=>'inbox']) }}"><i class="ti-email"></i> Inbox</a></li>
                             <li role="separator" class="divider"></li>
 
                             <li>

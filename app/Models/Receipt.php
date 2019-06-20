@@ -16,7 +16,7 @@ class Receipt extends Model
         'transaction_id',
         'from',
         'to',
-        'amount'
+        'amount',
         'total',
         'balance',
         'comment',

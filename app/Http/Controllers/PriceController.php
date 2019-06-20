@@ -37,7 +37,14 @@ class PriceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name'          => 'required',
+            'current_price' => 'required',
+
+        ]);
+        Price::create($request->all());
+
+        return redirect()->route('price.index')->with('success','System Price Item Created Successfully');
     }
 
     /**
@@ -49,6 +56,9 @@ class PriceController extends Controller
     public function show($id)
     {
         $price = Price::find($id);
+        if (!$price) {
+            return redirect()->route('price.index')->with('danger', 'Price item not ound!');
+        }
         return view('system.prices.show',compact(['price']));
     }
 
@@ -73,7 +83,13 @@ class PriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'name'          => 'required',
+            'current_price' => 'required',
+        ]);
+        Price::find($id)->update($request->all());
+
+        return redirect()->route('price.index')->with('success','System price item updated successfully');
     }
 
     /**

@@ -78,7 +78,8 @@
                                             <div class="col-4"> </div>
                                             <div class="col-8" style="max-height: 300px; overflow-y: auto;">
                                                 @foreach($permissions as $permission)
-                                                    <input type="checkbox" name="permission[]" value="{{ $permission->id }}" id="permckbx"> <label for="permckbx">{{ $permission->display_name }} </label> <br>
+                                                    <input type="checkbox" name="permission[]" value="{{ $permission->id }}" id="permckbx{{ $permission->id }}"> 
+                                                    <label for="permckbx{{ $permission->id }}">{{ $permission->display_name }} </label> <br>
                                                 @endforeach
                                             </div>
                                         </div>
