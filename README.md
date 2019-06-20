@@ -101,7 +101,7 @@ The Application is platform indipendent and thus can operate well on any device,
 
 ## License
 
-The URSB Lite Web Application is of the MIT License but strictly a property of UTAMU as referenced by [Bruno Nicholas](#developement).
+The URSB Lite Web Application is of the MIT License but strictly a property of Reuben Idro as referenced by [Bruno Nicholas](#developement).
 
 ## Development
 
