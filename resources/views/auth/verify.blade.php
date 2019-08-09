@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.auth')
+@section('title') Welcome Back - Login @endsection
 
 @section('content')
 <div class="container">
