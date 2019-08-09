@@ -195,6 +195,15 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-subtitle m-b-40"> System Stats </h4>
+
+
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('scripts')  

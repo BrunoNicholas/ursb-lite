@@ -25,7 +25,7 @@
 @section('content')
     @include('layouts.includes.notifications')
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('reservation.create') }}" class="btn btn-xs btn-info float-right"><i class="fa fa-plus"></i> Add New </a>
@@ -52,7 +52,7 @@
                                         <td>{{ $reservation->name_choice_1 }}</td>
                                         <td>{{ $reservation->name_choice_2 }}</td>
                                         <td>{{ $reservation->name_choice_3 }}</td>
-                                        <td>{{ $reservation->status }}</td>
+                                        <td> @if($reservation->status == 1) Taken @elseif($reservation->status == 2) Open @else Not Available @endif </td>
                                         <td style="min-width: 100px; text-align: center;">
                                             <a href="{{ route('reservation.show', $reservation->id) }}" class="btn btn-xs text-info" title="Reservation Details"><i class="fa fa-info-circle"></i></a>
                                             <a href="{{ route('reservation.edit', $reservation->id) }}" class="btn btn-xs text-primary"><i class="fa fa-edit" title="Edit Reservation Profile"></i></a>
@@ -62,13 +62,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
 
                 </div>
             </div>

@@ -24,7 +24,7 @@
 @section('content')
     @include('layouts.includes.notifications')
     <div class="row">
-
+        ...................
 
 
     </div>

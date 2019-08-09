@@ -1,7 +1,7 @@
 @extends('layouts.site')
 @section('title') System Users @endsection
 @section('styles') 
-<link href="{{ asset('/assets/plugins/datatables/media/css/css/dataTables.bootstrap.css') }}" rel="stylesheet"> 
+<link href="{{ asset('/assets/plugins/datatables/media/css/dataTables.bootstrap.css') }}" rel="stylesheet">
 @endsection
 @section('navigator')
     <div class="row page-titles">

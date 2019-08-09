@@ -15,7 +15,7 @@
                 <!--End Logo icon -->
                 <!-- Logo text --><span>
                  <!-- dark Logo text -->
-                 <img src="{{ asset('assets/images/logo-text.png') }}" alt="{{ config('app.name') }}" class="dark-logo" style="border-radius: 3px;" />
+                 <span class="dark-logo" style="border-radius: 3px;">{{ config('app.name') }}</span>
                  <!-- Light Logo text -->    
                  <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="{{ config('app.name') }}" /></span> </a>
         </div>

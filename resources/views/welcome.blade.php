@@ -26,7 +26,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="javascript:void(0)">
-          <img src="" alt="{{ config('app.name') }}">
+          <img src="{{ asset('assets/images/ursb_logo.jpg') }}" alt="{{ config('app.name') }}" style="border: thin solid transparent; border-radius: ">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -240,8 +240,8 @@
       <div class="container pt-lg pb-300">
         <div class="row text-center justify-content-center">
           <div class="col-lg-10">
-            <h2 class="display-3 text-white">Build something</h2>
-            <p class="lead text-white">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice.</p>
+            <h2 class="display-3 text-white">{{ config('app.name') }}</h2>
+            <p class="lead text-white"> The company management system that handles the Uganda Registration Service Bureau for compan management and secure payments. .</p>
           </div>
         </div>
         <div class="row row-grid mt-5">

@@ -87,7 +87,11 @@ class NameReservationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'name_choice_1'      => 'required',
+        ]);
+        NameReservation::find($id)->update($request->all());
+        return redirect()->route('reservation.index')->with('success','Reservation updated successfully!');
     }
 
     /**
@@ -98,6 +102,8 @@ class NameReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item   = NameReservation::find($id);
+        $item->delete();
+        return redirect()->route('reservation.index')->with('danger','Reservation deleted successfully!');
     }
 }

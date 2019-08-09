@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('reservation.index') }}" class="btn btn-xs btn-info float-right"><i class="fa fa-list"></i> Back </a>
-                    <h4 class="card-subtitle m-b-40"> {{ config('app.name') }} Departments </h4>
+                    <h4 class="card-subtitle m-b-40"> Add Name Reservation | {{ config('app.name') }} </h4>
                     <form action="{{ route('reservations.store') }}" method="POST" class="tab-wizard wizard-circle">
                         @csrf
 
@@ -138,7 +138,7 @@
                             </div>
                         </section>
                         <div div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-rounded btn-success">Create Department</button>
+                            <button type="submit" class="btn btn-rounded btn-success">Create Reservation</button>
                         </div>
                     </form>
 
@@ -147,8 +147,10 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card">
+            <div class="card text-center">
                 <div class="card-body">
+                    <h4 class="card-subtitle m-b-40"> Notice </h4>
+
 
                 </div>
             </div>
