@@ -296,6 +296,10 @@ Route::group(['middleware' => ['auth','verified']], function(){
 		'as'	=> 'profile',
 		'uses'	=> 'UserPageController@profile',
 	]);
+	Route::get('home-profile-settings', [
+		'as'	=> 'settings',
+		'uses'	=> 'UserPageController@settings',
+	]);
 	Route::post('home-profile', [
 		'as'	=> 'profile.update',
 		'uses'	=> 'UserPageController@update_image'

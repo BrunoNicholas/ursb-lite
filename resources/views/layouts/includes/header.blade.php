@@ -183,10 +183,11 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ route('profile') }}"><i class="ti-user"></i> My Profile</a></li>
                             <!-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li> -->
-                            <li><a href="{{ route('message.index',['type'=>'inbox']) }}"><i class="ti-email"></i> Inbox</a></li>
+                            <li><a href="{{ route('message.index','inbox') }}"><i class="ti-email"></i> Inbox</a></li>
+                            <li><a href="{{ route('settings') }}"><i class="fa-gear fa"></i> Settings</a></li>
                             <li role="separator" class="divider"></li>
 
-                            <li>
+                            <li class="text-center">
                             	<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             		<i class="fa fa-power-off"></i> 
 	                            	{{ __('Logout') }}
